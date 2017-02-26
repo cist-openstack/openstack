@@ -36,11 +36,12 @@ WantedBy=multi-user.target" > /lib/systemd/system/x11vnc.service
 
 # Start services
 systemctl daemon-reload
+systemctl start x11vnc.service
 systemctl enable x11vnc.service
-systemctl start ssh;
-systemctl enable ssh;
-systemctl start chronyd;
-systemctl enable chronyd;
+systemctl start ssh
+systemctl enable ssh
+systemctl start chrony
+systemctl enable chrony
 
 # Open firewall ports for ssh, http, and vnc
 firewall-cmd --add-port=80/tcp --permanent
@@ -52,6 +53,8 @@ firewall-cmd --add-port=5904/tcp --permanent
 firewall-cmd --add-port=5905/tcp --permanent
 firewall-cmd --reload
 
+# System upgrade
+apt-get -y upgrade
 
 echo "############################################################################"
 echo "############################################################################"
