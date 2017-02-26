@@ -1,0 +1,18 @@
+
+# DMZ network
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+136.142.139.133 controller 	controller.cist.pitt.edu
+136.142.139.134 network 	network.cist.pitt.edu
+136.142.139.135 hv1 		hv1.cist.pitt.edu
+136.142.139.136 compute2	compute2.cist.pitt.edu
+136.142.139.137 derpy 		derpy.cist.pitt.edu
+136.142.139.138 compute3 	compute3.cist.pitt.edu
+136.142.139.139 compute4 	comptue4.cist.pitt.edu
+136.142.139.145 proxy 		proxy.snapstack.cloud
+
+# Admin network (OpenStack VMs)
+10.10.10.9  proxy 	proxy.snapstack.cloud
+10.10.10.12 docs	docs.snapstack.cloud
+10.10.10.13 grafana	grafana.snapstack.cloud
+10.10.10.15 influxdb	influxdb.snapstack.cloud
