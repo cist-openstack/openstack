@@ -15,7 +15,7 @@ else
  # Starting backup of /
  echo "[`date | awk {'print $2$3" " $4" " $6'}`][INFO] Starting / backup" >> /var/log/backup.log
  # Exclude temporary file systems, other backups, and /etc/fstab - we have a unique /etc/fstab in case we must boot to the backup disk
- rsync -aAXv --delete  --exclude={"/var/log/","/dev/","/proc/","/sys/","/tmp/","/run/","/mnt/","/media/","/srv/","/lost+found","/home/"} / derpy:/home/backups/controller_backup
+ rsync -aAXv --delete  --exclude={"/var/log/","/dev/","/proc/","/sys/","/tmp/","/run/","/mnt/","/media/","/srv/","/lost+found"} / derpy:/home/backups/controller_backup
 
  if [ "`echo $?`" == "0" ]; then
   echo "[`date | awk {'print $2$3" " $4" " $6'}`][SUCCESS] / backed up!" >> /var/log/backup.log
