@@ -7,6 +7,7 @@ label 1
 menu label ^1) Install CentOS 7 x64 with Local Repo
 kernel centos7/vmlinuz
 append initrd=centos7/initrd.img method=ftp://192.168.99.2/pub devfs=nomount
+ks=ftp://192.168.99.2/pub/compute_node.ks
 label 2
 menu label ^2) Install CentOS 7 x64 with http://mirror.centos.org Repo
 kernel centos7/vmlinuz
