@@ -40,12 +40,17 @@ systemctl start x11vnc.service
 systemctl enable x11vnc.service
 systemctl start ssh
 systemctl enable ssh
+systemctl start sshd
+systemctl enable sshd
+systemctl restart sshd
+systemctl restart ssh
 systemctl start chrony
 systemctl enable chrony
 
 # Open firewall ports for ssh, http, and vnc
 firewall-cmd --add-port=80/tcp --permanent
 firewall-cmd --add-port=443/tcp --permanent
+firewall-cmd --add-port=5900/tcp --permanent
 firewall-cmd --add-port=5901/tcp --permanent
 firewall-cmd --add-port=5902/tcp --permanent
 firewall-cmd --add-port=5903/tcp --permanent
