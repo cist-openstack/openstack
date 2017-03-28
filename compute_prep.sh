@@ -34,8 +34,6 @@ elif [ "$IP" == "136.142.139.150" ]; then
  hostnamectl set-hostname compute15.cist.pitt.edu
 elif [ "$IP" == "136.142.139.151" ]; then
  hostnamectl set-hostname compute16.cist.pitt.edu
-elif [ "$IP" == "192.168.100.218" ]; then
- hostnamectl set-hostname derp.cist.pitt.edu
 else
  hostnamectl set-hostname isuckatipaddresses.cist.pitt.edu
 fi
