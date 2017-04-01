@@ -1,5 +1,5 @@
 --- # Compute node install playbook
-- hosts: compute
+- hosts: leftovers
   remote_user: root
   become: yes
   become_method: sudo
@@ -19,5 +19,5 @@
       force: yes
   - name: Execute compute_prep.sh
     script: /root/openstack/compute_prep.sh
-  - name: Reboot
-    command: shutdown -r +1
+#  - name: Reboot
+#    command: shutdown -r +1

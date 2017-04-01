@@ -52,6 +52,4 @@ systemctl disable NetworkManager;
 systemctl stop firewalld;
 systemctl disable firewalld;
 
-sudo sed -i '/PermitRootLogin/a PermitRootLogin yes' /etc/ssh/sshd_config ;
-sudo sed -i '/PasswordAuthentication/a PasswordAuthentication yes' /etc/ssh/sshd_config ;
 sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config ;
