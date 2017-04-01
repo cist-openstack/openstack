@@ -1,0 +1,54 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to the Computer Information Systems and Technology's OpenStack at the University of Pittsburgh at Bradford\n\n\nTo get started, please request access by emailing cist.openstack@pitt.edu.\n\nInclude your first and last name, Pitt username, and project justification.\n\nYour account will be created within 1-2 business days.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-the-computer-information-systems-and-technologys-openstack-at-the-university-of-pittsburgh-at-bradford", 
+            "text": "To get started, please request access by emailing cist.openstack@pitt.edu. \nInclude your first and last name, Pitt username, and project justification. \nYour account will be created within 1-2 business days.", 
+            "title": "Welcome to the Computer Information Systems and Technology's OpenStack at the University of Pittsburgh at Bradford"
+        }, 
+        {
+            "location": "/getting_started/", 
+            "text": "", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/setup/", 
+            "text": "Create a Network\n\n\nCreate a Subnet\n\n\nCreate a Router\n\n\nCreate Access Rules\n\n\nDownload SSH Keys (Optional)\n\n\nLaunch an Instance", 
+            "title": "Setting up Your Project"
+        }, 
+        {
+            "location": "/setup/#create-a-network", 
+            "text": "", 
+            "title": "Create a Network"
+        }, 
+        {
+            "location": "/setup/#create-a-subnet", 
+            "text": "", 
+            "title": "Create a Subnet"
+        }, 
+        {
+            "location": "/setup/#create-a-router", 
+            "text": "", 
+            "title": "Create a Router"
+        }, 
+        {
+            "location": "/setup/#create-access-rules", 
+            "text": "", 
+            "title": "Create Access Rules"
+        }, 
+        {
+            "location": "/setup/#download-ssh-keys-optional", 
+            "text": "", 
+            "title": "Download SSH Keys (Optional)"
+        }, 
+        {
+            "location": "/setup/#launch-an-instance", 
+            "text": "", 
+            "title": "Launch an Instance"
+        }
+    ]
+}
