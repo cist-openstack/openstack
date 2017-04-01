@@ -10,7 +10,6 @@ Access:
 * SSH via port 22  
 * VNC via port 5901  
 Username: root  
-Password: Panther$  
 
 
 #### Windows Server 2012:  
@@ -20,7 +19,3 @@ Minimum requirements: 2G RAM, 1vCPU, 60G Disk (win.medium)
 Access:  
 * Remote Desktop via IP address  
 Username: administrator  
-Password: Panther$  
-
-
-
