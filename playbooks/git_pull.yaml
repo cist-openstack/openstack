@@ -1,0 +1,15 @@
+--- # Compute node install playbook
+- hosts: all
+  remote_user: root
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Clone CIST-Openstack
+    git:
+      repo: 'https://github.com/cist-openstack/openstack.git'
+      dest: /root/openstack
+      clone: yes
+      update: yes
+      force: yes
