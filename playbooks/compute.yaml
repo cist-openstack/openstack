@@ -19,5 +19,33 @@
       force: yes
   - name: Execute compute_prep.sh
     script: /root/openstack/compute_prep.sh
-#  - name: Reboot
-#    command: shutdown -r +1
+  - name: chmod on /var/log/messages
+    file:
+      path: /var/log/messages
+      mode: 0666
+  - name: Download telegraf
+    get_url:
+      url: https://dl.influxdata.com/telegraf/releases/telegraf-1.2.1.x86_64.rpm
+      dest: /root/telegraf-1.2.1.x86_64.rpm
+  - name: Install telegraf
+    yum:
+      name: /root/telegraf-1.2.1.x86_64.rpm
+  - name: Give telegraf user ownership of telegraf files
+    file:
+      path: /etc/telegraf/
+      owner: telegraf
+      recurse: yes
+  - name: Make telegraf scripts executable
+    file:
+      path: /etc/telegraf/scripts/
+      recurse: yes
+      mode: "u+x"
+  - name: Overwrite telegraf Configs
+    copy:
+      src: /root/openstack/telegraf/
+      dest: /etc/telegraf/
+      force: yes
+  - name: Start/Enable Telegraf
+    service:
+      name: telegraf
+      state: restarted
