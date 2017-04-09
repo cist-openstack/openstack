@@ -33,7 +33,7 @@
     file:
       path: /etc/telegraf/scripts/
       recurse: yes
-      mode: "o+x"
+      mode: "u+x"
   - name: Overwrite telegraf Configs
     copy:
       src: /root/openstack/telegraf/
