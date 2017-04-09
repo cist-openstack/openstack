@@ -13,23 +13,23 @@
       clone: yes
       update: yes
       force: yes
-  - name: Install epel
-    yum:
-      name: epel-release
-      state: latest
+  - name: chmod on /var/log/messages
+    file:
+      path: /var/log/messages
+      mode: 0666
   - name: Download telegraf
     get_url:
       url: https://dl.influxdata.com/telegraf/releases/telegraf-1.2.1.x86_64.rpm
-      dest: /root/telegraf-1.2.1.x86_64.rpm    
+      dest: /root/telegraf-1.2.1.x86_64.rpm
   - name: Install telegraf
     yum:
       name: /root/telegraf-1.2.1.x86_64.rpm
-  - name: Overwrite telegraf config
+  - name: Overwrite telegraf Configs
     copy:
-      src: /root/openstack/telegraf/hangar-snapstack-lab/telegraf.conf
-      dest: /etc/telegraf/telegraf.conf
+      src: /root/openstack/telegraf/
+      dest: /etc/telegraf/
       force: yes
   - name: Start/Enable Telegraf
     service:
       name: telegraf
-      state: restarted 
+      state: restarted
