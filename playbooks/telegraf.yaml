@@ -24,6 +24,16 @@
   - name: Install telegraf
     yum:
       name: /root/telegraf-1.2.1.x86_64.rpm
+  - name: Give telegraf user ownership of telegraf files
+    file:
+      path: /etc/telegraf/
+      owner: telegraf
+      recurse: yes
+  - name: Make telegraf scripts executable
+    file:
+      path: /etc/telegraf/scripts/
+      recurse: yes
+      mode: "o+x"
   - name: Overwrite telegraf Configs
     copy:
       src: /root/openstack/telegraf/
