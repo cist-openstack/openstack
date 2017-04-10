@@ -1,0 +1,13 @@
+--- # Syncing users - create accounts on controller then sync them across all nodes
+- hosts: all
+  remote_user: root
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Sync sudoers from controller node
+    file:
+      src: /etc/sudoers
+      dest: /etc/sudoers
+      force: yes
