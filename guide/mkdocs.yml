@@ -7,6 +7,6 @@ pages:
         - "Setting up Your Project" : "user_guide/setup.md"
         - "Image Information" : "user_guide/image_info.md"
         - "Flavor References" : "user_guide/flavors.md"
-    - Admin Guide:
+    - Admin Guide: 
         - "Getting Started" : "admin_guide/getting_started.md"
 theme: readthedocs
