@@ -7,7 +7,7 @@ Pitt's OpenStack instance, also known as **SnapStack** can be accessed at http:/
 
 ### Explore the Dashboard  
 
-Before we can do anything, it's best to get familiar with the dashboard so that we have a general idea of where things are, what we can do, and how to do it. Once you're logged in, check out the navbar on the left side. From top to bottom, let's expand these tabs to get an idea of what we can do.  
+Before we can do anything, it's best to get familiar with the dashboard so that we have a general idea of where things are, what we can do, and how to do it. Once you're logged in check out the navbar on the left side. From top to bottom let's expand these tabs to get an idea of what we can do.  
 
 #### Project
 Clicking the "Project" tab will display the three main components of every project; Compute, Network, and Object Store.  
