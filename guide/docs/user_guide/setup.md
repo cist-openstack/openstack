@@ -21,7 +21,7 @@ Since we have already explored the dashboard and reset our password, we're ready
 #### Details
 - **Availbility Zone:** nova
 -  **Instance Name:** My first instance!** (whatever you want)
--  **Flavor:** Choose an appropriate size for your instance. Remember that some images require a certain amount of resources so we must make sure we are giving ourselves enough resources or launching the instance may fail. If you need a refresher on what size the Flavors are, you can check [here](http://help.snapstack.cloud/flavors) for a full list - or just tilt your eyes slightly to the right and examine the specifications directly beneath the giant letters that say "Flavor Details".
+-  **Flavor:** Choose an appropriate size for your instance. Remember that some images require a certain amount of resources so we must make sure we are giving ourselves enough resources or launching the instance may fail. If you need a refresher on what size the Flavors are, you can check [here](http://help.snapstack.cloud/user_guide/flavors.md) for a full list - or just tilt your eyes slightly to the right and examine the specifications directly beneath the giant letters that say "Flavor Details".
 - **Instance Count:** Choose how many instances you would like to launch.
 - **Instance Boot Source:** Most likely you want to boot from an image, however there are options to boot from a volume or snapshot. More about this later.
 - **Image Name:** These are the different images that are available to deploy. Select the image you'd like to use.  
