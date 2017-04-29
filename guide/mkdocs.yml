@@ -1,8 +1,0 @@
-site_name: CIS&T OpenStack Guide
-pages:
-    - Home: "index.md"
-    - User Guide:
-        - "Getting Started" : "getting_started.md"
-        - "Setting up Your Project" : "setup.md"
-        - "Image Information" : "image_info.md"
-theme: readthedocs
