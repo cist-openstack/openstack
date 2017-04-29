@@ -26,18 +26,28 @@ Since we have already explored the dashboard and reset our password, we're ready
 - **Instance Boot Source:** Most likely you want to boot from an image, however there are options to boot from a volume or snapshot. More about this later.
 - **Image Name:** These are the different images that are available to deploy. Select the image you'd like to use.  
 
+![details](launch_instance.png)
+
 #### Access and Security
 - **Key Pair** - If you have not created a key pair, you can keep the default of "No key pairs available", otherwise go ahead and select the key pair you'd like to use.
 - **Security Groups** - Select the security group that you configured previously. These are our firewall rules. If a security group is not selected, the instance will never be accessible as it will block all traffic by default.
+
+![access_and_security](access_and_security.png)
 
 #### Networking
 This is a critical step and very easy to screw up. We always, 100% of the time want to choose a **private** network. By default you will have access to the **admin_private** network. This is a /23 subnet this is shared among all projects in order to allow instances from different projects to communicate. In the future we will be able to create our own private networks to keep our instances segregated for testing.
 - **Available networks:** Select a private network.
 
-Ignore the last two tabs - **Post Creation** and **Advanced Options**. Click **Launch**.
+![selecting_network.png](selecting_network.png)
+
+Ignore the last two tabs (**Post Creation** and **Advanced Options**) and click **Launch**.
+
+![spawning](spawning.png)
 
 #### I Launched An Instance!
 Launching an instance typically takes less than a few minutes before it is accessible, but this depends heavily on two factors: if this image has ever been launched on the compute node we landed on and the size of the image. Obviously an image that is 2GB is size will launch much faster than a 15GB image.
 
+
+
 Wait - what do you mean, "if this image has ever been launched on the compute node we landed on"?
-> First of all, we have a lot of compute nodes. Our controller node determines the best location for our instance by comparing the available resources of all of the compute nodes. When an image is deployed on a compute node for the first time, the entire image is copied to the compute node and stored for future use. So if a particular image has never been launched on a compute node before, the first time it is launched on that compute node will take an extra long time as it needs to first copy the entire image file over. Once that image file is on the compute node, it will be stored permanently (or until the image is deleted from the database) and will launch in a fraction of the time in the future. We do our best to "burn" in the images to all of the compute nodes before anyone uses them, but occasionally it's possible we missed one as images are being added frequently.
+> First of all, we have a lot of compute nodes. Our controller node determines the best location for our instance by comparing the available resources of all of the compute nodes. When an image is deployed on a compute node for the first time, the entire image is copied to the compute node and stored for future use. So if a particular image has never been launched on a compute node before, the first time it is launched on that compute node it will take an extra long time as it needs to first copy the entire image file over. Once that image file is cached on the compute node, it will be stored permanently and will launch in a fraction of the time in the future. We do our best to "burn" in the images to all of the compute nodes before anyone uses them, but occasionally it's possible we missed one as images are being added frequently and targeting an instance on a specific compute node is not currently possible.
