@@ -2,8 +2,8 @@
 Now that we are a little more familiar with our dashboard, let's take the necessary steps to get started and launch an instance. But first, you may want to change your password from the default password provided to us by the administrator.
 
 #### Change Your Password
-Log in using the default credentials. Once logged in, on the top right you will see a dropdown menu that is your user name. Click it.
-- Settings
+Log in using the default credentials. Once logged in, on the top right you will see a dropdown menu that is your user name. Click it.  
+- Settings  
 - Change Password
 
 That's it! Log out and back in again to test your password and we can proceed.  
@@ -13,9 +13,9 @@ Without configuring a **security group**, our instance will never be accessible.
 
 ### Launching an Instance
 Since we have already explored the dashboard and reset our password, we're ready to launch an instance. This is all performed from the **Compute** tab in the left navbar.  
-- Click **Compute**
-- Click **Instances**
-- Click **Launch Instance**
+- Click **Compute**  
+- Click **Instances**  
+- Click **Launch Instance**  
 - Now we are presented with a menu with 5 tabs. Let's start with **Details**.
 
 #### Details
