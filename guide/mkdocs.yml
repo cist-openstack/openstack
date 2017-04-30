@@ -7,6 +7,14 @@ pages:
         - "Setting up Your Project" : "user_guide/setup.md"
         - "Image Information" : "user_guide/image_info.md"
         - "Flavor References" : "user_guide/flavors.md"
-    - Admin Guide: 
+    - Admin Guide:
         - "Getting Started" : "admin_guide/getting_started.md"
+        - Packstack Liberty: "admin_guide/packstack/packstack_index.md"
+        - Troubleshooting:
+          - "Calling 'http://169.254.169.254...'" : "admin_guide/troubleshooting/calling.md"
+          - "Packstack fail: Django" : "admin_guide/troubleshooting/packstacks_django.md"
+          - "HTTPD fails" : "admin_guide/troubleshooting/http_fails.md"
+        - Image Creation:
+          - "CentOS 7" : "admin_guide/image_creation/centos7_image_creation.md"
+          - "Ubuntu" : "admin_guide/image_creation/ubuntu_image_creation.md"
 theme: readthedocs
