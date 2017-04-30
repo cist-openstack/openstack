@@ -4,14 +4,14 @@
 SUM=0
 
 # Set credentials
-source /root/keystonerc_admin
 unset OS_SERVICE_TOKEN
-export OS_USERNAME=admin
+export OS_USERNAME=`whoami`
 export OS_AUTH_URL=http://136.142.139.133:5000/v2.0
 export PS1='[\u@\h \W(keystone_admin)]\$ '
 export OS_TENANT_NAME=admin
 export OS_REGION_NAME=RegionOne
 
+source ~/keystonerc_admin
 # Get all project names other than admin
 PROJECT_ARRAY=(`openstack project list -f value | egrep -v 'admin|services|demo' | awk '{print $2}'`)
 
