@@ -52,7 +52,7 @@ DISK=`get_disk`
 echo $RAM
 echo $CPU
 echo $DISK
-openstack quota set --ram=$RAM --cores=$CPU --gigabytes=$DISK $ADMIN
+openstack quota set --ram=$RAM --cores=$CPU --instances=$CPU --gigabytes=$DISK $ADMIN
 echo "Gave admin project $RAM MB of RAM"
 echo "Gave admin project $CPU vCPUs"
 echo "Gave admin project $DISK gigs of disk"
