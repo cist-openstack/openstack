@@ -1,35 +1,59 @@
 #/bin/bash
 
-# Ensure SUM variable starts at 0
-SUM=0
+# Set admin project ID
+ADMIN="f2734a21c74e4c4a98111a09dcfb1825"
 
 # Set credentials
-source /root/keystonerc_admin
-unset OS_SERVICE_TOKEN
-export OS_USERNAME=admin
-export OS_AUTH_URL=http://136.142.139.133:5000/v2.0
-export PS1='[\u@\h \W(keystone_admin)]\$ '
-export OS_TENANT_NAME=admin
-export OS_REGION_NAME=RegionOne
+source ~/keystonerc_admin
 
 # Get all project names other than admin
 PROJECT_ARRAY=(`openstack project list -f value | egrep -v 'admin|services|demo' | awk '{print $2}'`)
 
-# Get total RAM
-TOTAL_RAM=`nova hypervisor-stats | grep memory_mb | grep -v used | awk '{print $4}'`
+get_ram() 
+{
+  # Get total RAM
+  TOTAL_RAM=`nova hypervisor-stats | grep memory_mb | grep -v used | awk '{print $4}'`
+  # Get RAM from all projects other than admin
+  for i in ${PROJECT_ARRAY[*]}; do SUM=`expr $SUM + \`openstack quota show $i | egrep 'ram' | awk '{print $4}'\``; done;
+  # Get unallocated RAM
+  UNALLOCATED_RAM=`expr $TOTAL_RAM - $SUM`
+  echo $UNALLOCATED_RAM
+}
 
-# Get RAM from all projects other than admin
-for i in ${PROJECT_ARRAY[*]}; do SUM=`expr $SUM + \`openstack quota show $i | egrep 'ram' | awk '{print $4}'\``; done;
+get_cpu() 
+{
+  # Get total CPUs
+  TOTAL_CPUS=`nova hypervisor-stats | grep vcpus | grep -v used | awk '{print $4}'` 
+  # Get CPUs from all projects other than admin
+  for i in ${PROJECT_ARRAY[*]}; do CPU_SUM=`expr $CPU_SUM + \`openstack quota show $i | egrep 'cores' | awk '{print $4}'\``; done;
+  # Get unallocated RAM
+  UNALLOCATED_CPUS=`expr $TOTAL_CPUS - $CPU_SUM`
+  echo $UNALLOCATED_CPUS
+}
 
-# Get unallocated RAM
-UNALLOCATED_RAM=`expr $TOTAL_RAM - $SUM`
+get_disk()
+{
+  # Get total CPUs
+  TOTAL_DISK=`nova hypervisor-stats | grep local_gb | grep -v used | awk '{print $4}'`
+  # Get CPUs from all projects other than admin
+  for i in ${PROJECT_ARRAY[*]}; do DISK_SUM=`expr $DISK_SUM + \`openstack quota show admin | egrep 'gigabytes' | egrep -v 'backup|volume|iscsi' | awk '{print $4}'\``; done;
+  # Get unallocated RAM
+  UNALLOCATED_DISK=`expr $TOTAL_DISK - $DISK_SUM`
+  echo $UNALLOCATED_DISK
+}
 
-echo "Total RAM available on all hypervisors: $TOTAL_RAM"
-echo "Total RAM that is allocated to all projects: $SUM"
-echo "Unallocated RAM: $UNALLOCATED_RAM"
-echo -e "Setting the rest of the unallocated RAM to the Admin quota"
-
-# Give all unallocated ram to admin project
-openstack quota set --ram $UNALLOCATED_RAM admin
-
-echo -e "Gave admin project $UNALLOCATED_RAM MB of RAM"
+# Starting script - get ram, get cpus, get disk, set quota
+echo " ********** Gathering RAM **********"
+RAM=`get_ram`
+echo " ********** Gathering CPUs *********"
+CPU=`get_cpu`
+echo " ********** Gathering Disk *********"
+DISK=`get_disk`
+echo $RAM
+echo $CPU
+echo $DISK
+openstack quota set --ram=$RAM --cores=$CPU --instances=$CPU --gigabytes=$DISK $ADMIN
+echo "Gave admin project $RAM MB of RAM"
+echo "Gave admin project $CPU vCPUs"
+echo "Gave admin project $DISK gigs of disk"
+openstack quota show $ADMIN

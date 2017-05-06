@@ -1,0 +1,60 @@
+--- # Compute node install playbook
+- hosts: leftovers
+  remote_user: root
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Download git
+    yum:
+      name: git
+      state: latest
+  - name: Clone CIST-Openstack
+    git:
+      repo: 'https://github.com/cist-openstack/openstack.git'
+      dest: /root/openstack
+      clone: yes
+      update: yes
+      force: yes
+  - name: Execute compute_prep.sh
+    script: /root/openstack/compute_bootstrap/compute_prep.sh
+  - name: Overwrite /etc/nova/nova.conf
+    copy:
+      src: /root/openstack/compute_bootstrap/nova.conf
+      dest: /etc/nova/nova.conf
+      force: yes
+  - name: Restart nova
+    service:
+      name: openstack-nova-compute
+      state: restarted
+  - name: chmod on /var/log/messages
+    file:
+      path: /var/log/messages
+      mode: 0666
+  - name: Download telegraf
+    get_url:
+      url: https://dl.influxdata.com/telegraf/releases/telegraf-1.2.1.x86_64.rpm
+      dest: /root/telegraf-1.2.1.x86_64.rpm
+  - name: Install telegraf
+    yum:
+      name: /root/telegraf-1.2.1.x86_64.rpm
+  - name: Give telegraf user ownership of telegraf files
+    file:
+      path: /etc/telegraf/
+      owner: telegraf
+      recurse: yes
+  - name: Make telegraf scripts executable
+    file:
+      path: /etc/telegraf/scripts/
+      recurse: yes
+      mode: "u+x"
+  - name: Overwrite telegraf Configs
+    copy:
+      src: /root/openstack/telegraf/
+      dest: /etc/telegraf/
+      force: yes
+  - name: Start/Enable Telegraf
+    service:
+      name: telegraf
+      state: restarted
