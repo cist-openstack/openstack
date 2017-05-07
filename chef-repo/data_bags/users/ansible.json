@@ -1,0 +1,8 @@
+{
+  "id": "ansible",
+  "comment": "Ansible Headless User",
+  "gid": "0",
+  "home": "/home/ansible",
+  "shell": "/bin/bash",
+  "password": "$6$3slBU8f8$W7MzBdvgfb0m/weT.Wn1MNEP6pyLv5hiQHbSUDVgTTR42/siKjE2dNp/ckiA.I/IdJwpIymOoS1Z9umGWX8XH."
+}
