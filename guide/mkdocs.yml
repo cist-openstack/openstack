@@ -17,4 +17,6 @@ pages:
         - Image Creation:
           - "CentOS 7" : "admin_guide/image_creation/centos7_image_creation.md"
           - "Ubuntu" : "admin_guide/image_creation/ubuntu_image_creation.md"
+        - Runbooks:
+          - "Data Bag Users" : "admin_guide/runbooks/add_user_data_bag_items.md"
 theme: readthedocs
