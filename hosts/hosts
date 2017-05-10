@@ -23,9 +23,5 @@
 136.142.139.149 compute14	compute14.cist.pitt.edu
 136.142.139.150 compute15	compute15.cist.pitt.edu
 136.142.139.151 compute16	compute16.cist.pitt.edu
-
+136.142.139.154 chef		chef.snapstack.cloud
 # Admin network (OpenStack VMs)
-10.10.10.9  proxy 	proxy.snapstack.cloud
-10.10.10.12 docs	docs.snapstack.cloud
-10.10.10.13 grafana	grafana.snapstack.cloud
-10.10.10.15 influxdb	influxdb.snapstack.cloud

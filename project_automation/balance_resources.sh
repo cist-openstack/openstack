@@ -2,12 +2,14 @@
 
 # Set admin project ID
 ADMIN="f2734a21c74e4c4a98111a09dcfb1825"
+DEMO="e9f23010d51b442987f790330eca5d40"
+SERVICES="95be8bb2955c480a92910bc8e7ec2be0"
 
 # Set credentials
 source ~/keystonerc_admin
 
 # Get all project names other than admin
-PROJECT_ARRAY=(`openstack project list -f value | egrep -v 'admin|services|demo' | awk '{print $2}'`)
+PROJECT_ARRAY=(`openstack project list -f value | egrep -v "$ADMIN|$DEMO|$SERVICES" | awk '{print $1}'`)
 
 get_ram() 
 {
@@ -49,10 +51,7 @@ echo " ********** Gathering CPUs *********"
 CPU=`get_cpu`
 echo " ********** Gathering Disk *********"
 DISK=`get_disk`
-echo $RAM
-echo $CPU
-echo $DISK
-openstack quota set --ram=$RAM --cores=$CPU --instances=$CPU --gigabytes=$DISK $ADMIN
+openstack quota set --ram="$RAM" --cores="$CPU" --instances="$CPU" --gigabytes="$DISK" "$ADMIN"
 echo "Gave admin project $RAM MB of RAM"
 echo "Gave admin project $CPU vCPUs"
 echo "Gave admin project $DISK gigs of disk"
