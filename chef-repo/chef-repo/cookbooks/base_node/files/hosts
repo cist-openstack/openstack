@@ -1,0 +1,31 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+136.142.139.154 chef.snapstack.cloud
+136.142.139.131 compute1        compute1.cist.pitt.edu
+136.142.139.132 compute5        compute5.cist.pitt.edu
+136.142.139.133 controller      controller.cist.pitt.edu
+136.142.139.134 network         network.cist.pitt.edu
+136.142.139.135 hv1             hv1.cist.pitt.edu
+136.142.139.136 compute2        compute2.cist.pitt.edu
+136.142.139.137 derpy           derpy.cist.pitt.edu
+136.142.139.138 compute3        compute3.cist.pitt.edu
+136.142.139.139 compute4        compute4.cist.pitt.edu
+136.142.139.140 compute6        compute6.cist.pitt.edu
+136.142.139.141 compute7        compute7.cist.pitt.edu
+136.142.139.142 compute8        compute8.cist.pitt.edu
+136.142.139.143 compute9        compute9.cist.pitt.edu
+136.142.139.144 compute10       compute10.cist.pitt.edu
+136.142.139.145 proxy           proxy.snapstack.cloud
+136.142.139.146 compute11       compute11.cist.pitt.edu
+136.142.139.147 compute12       compute12.cist.pitt.edu
+136.142.139.148 compute13       compute13.cist.pitt.edu
+136.142.139.149 compute14       compute14.cist.pitt.edu
+136.142.139.150 compute15       compute15.cist.pitt.edu
+136.142.139.151 compute16       compute16.cist.pitt.edu
+
+#OpenStack
+10.10.11.69 k8s-1	k8s-1.snapstack.cloud
+10.10.11.70 k8s-2	k8s-2.snapstack.cloud
+10.10.11.71 k8s-3	k8s-3.snapstack.cloud
+10.10.11.72 k8s-4	k8s-4.snapstack.cloud
+
