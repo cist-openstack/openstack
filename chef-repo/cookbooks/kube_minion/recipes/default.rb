@@ -6,9 +6,17 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-cookbook_file '/etc/kubernetes/kubelet' do
-  source 'kubelet'
-  action :create
+
+#cookbook_file '/etc/kubernetes/kubelet' do
+#  source 'kubelet'
+#  action :create
+#end
+
+template '/etc/kubernetes/kubelet' do
+  source 'kubelet.erb'
+  variables(
+        :hostname => node['machinename']
+)
 end
 
 service 'kube-proxy' do

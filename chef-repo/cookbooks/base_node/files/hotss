@@ -27,7 +27,7 @@
 136.142.139.155 proxy 		proxy.snapstack.cloud
 
 # Admin network (OpenStack VMs)
-10.10.11.69	k8s-1		k8s-1.snapstack.cloud
-10.10.11.70	k8s-2		k8s-2.snapstack.cloud
-10.10.11.71	k8s-3		k8s-3.snapstack.cloud
-10.10.11.72	k8s-4		k8s-4.snapstack.cloud
+10.10.10.69	k8s-1		k8s-1.snapstack.cloud
+10.10.10.70	k8s-2		k8s-2.snapstack.cloud
+10.10.10.71	k8s-3		k8s-3.snapstack.cloud
+10.10.10.72	k8s-4		k8s-4.snapstack.cloud
