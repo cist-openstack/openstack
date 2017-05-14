@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo fping -f all_hosts > ping 2> /dev/null
-hosts_up=`cat ping | grep -i alive | wc -l`
+sudo fping -f /etc/telegraf/scripts/all_hosts > /tmp/ping 2> /dev/null
+hosts_up=`cat /tmp/ping | grep -i alive | wc -l`
 echo "{\"total_physical_hosts_up\": $hosts_up}"
-rm ping
+rm /tmp/ping

@@ -16,7 +16,7 @@
 136.142.139.142 compute8	compute8.cist.pitt.edu
 136.142.139.143 compute9	compute9.cist.pitt.edu
 136.142.139.144	compute10	compute10.cist.pitt.edu
-136.142.139.145 proxy 		proxy.snapstack.cloud
+136.142.139.145 whatisthis	whatisthis.snapstack.cloud
 136.142.139.146 compute11	compute11.cist.pitt.edu
 136.142.139.147 compute12	compute12.cist.pitt.edu
 136.142.139.148 compute13	compute13.cist.pitt.edu
@@ -24,4 +24,6 @@
 136.142.139.150 compute15	compute15.cist.pitt.edu
 136.142.139.151 compute16	compute16.cist.pitt.edu
 136.142.139.154 chef		chef.snapstack.cloud
+136.142.139.155 proxy 		proxy.snapstack.cloud
+
 # Admin network (OpenStack VMs)
