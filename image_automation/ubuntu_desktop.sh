@@ -34,6 +34,18 @@ ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth
 [Install]
 WantedBy=multi-user.target" > /lib/systemd/system/x11vnc.service
 
+# Open firewall ports for ssh, http, and vnc
+firewall-cmd --add-port=80/tcp --permanent
+firewall-cmd --add-port=443/tcp --permanent
+firewall-cmd --add-port=5900/tcp --permanent
+firewall-cmd --add-port=5901/tcp --permanent
+firewall-cmd --add-port=5902/tcp --permanent
+firewall-cmd --add-port=5903/tcp --permanent
+firewall-cmd --add-port=5904/tcp --permanent
+firewall-cmd --add-port=5905/tcp --permanent
+firewall-cmd --add-port=22/tcp --permanent
+firewall-cmd --reload
+
 # Start services
 systemctl daemon-reload
 systemctl start x11vnc.service
@@ -46,17 +58,8 @@ systemctl restart sshd
 systemctl restart ssh
 systemctl start chrony
 systemctl enable chrony
-
-# Open firewall ports for ssh, http, and vnc
-firewall-cmd --add-port=80/tcp --permanent
-firewall-cmd --add-port=443/tcp --permanent
-firewall-cmd --add-port=5900/tcp --permanent
-firewall-cmd --add-port=5901/tcp --permanent
-firewall-cmd --add-port=5902/tcp --permanent
-firewall-cmd --add-port=5903/tcp --permanent
-firewall-cmd --add-port=5904/tcp --permanent
-firewall-cmd --add-port=5905/tcp --permanent
-firewall-cmd --reload
+systemctl stop firewalld
+systemctl disable firewalld
 
 # System upgrade
 apt-get -y upgrade
@@ -73,4 +76,5 @@ echo "##########################################################################
 echo "############################################################################"
 echo "############################################################################"
 echo "############################################################################"
-
+echo ""
+echo ""
