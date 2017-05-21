@@ -67,13 +67,20 @@ dpkg-reconfigure openssh-server
 # System upgrade
 apt-get -y upgrade
 
+# Set /etc/cloud/cloud.cfg
+git clone https://github.com/cist-openstack/openstack.git
+unalias cp
+cp -f openstack/image_automation/ubuntu/cloud.cfg /etc/cloud/cloud.cfg
+cp -f openstack/image_automation/ubuntu/make_keys.sh /etc/init.d/make_keys.sh
+cp -f openstack/image_automation/ubuntu/sshd_config /etc/ssh/sshd_config
+cp -f openstack/image_automation/ubuntu/sudoers /etc/sudoers
+chmod 755 /etc/init.d/make_keys.sh
 
 echo "############################################################################"
 echo "############################################################################"
 echo "############################################################################"
 echo "############################################################################"
-echo "############       CONFIGURE /ETC/CLOUD/CLOUD.CFG       ####################"
-echo "############    CONFIGURE VNC PASSWD (VNCSTOREPASSWD    ####################"
+echo "############    CONFIGURE VNC PASSWD (VNCSTOREPASSWD)   ####################"
 echo "############       CONFIGURE DEFAULT USER PASSWORD      ####################"
 echo "############       CONFIGURE SUDO ACCESS FOR USERS      ####################"
 echo "############################################################################"
