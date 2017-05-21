@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /tmp/
 
 echo "Hi! Let's make a CentOS 7 image."
 echo -e
