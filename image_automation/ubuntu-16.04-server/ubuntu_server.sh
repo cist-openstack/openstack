@@ -1,5 +1,5 @@
 #/bin/bash
-
+cd /tmp/
 # Get a bunch of sweet packages
 apt-get install -y mlocate vim samba-common-bin smbclient apache2 \
 net-tools gdisk lvm2 at fping git acpid tmux chrony \
