@@ -27,14 +27,14 @@ dnf -y install bind-utils
 dnf -y install vim 
 dnf -y install samba-client 
 dnf -y install httpd 
-dns -y install nfs-utils 
+dnf -y install nfs-utils 
 dnf -y install net-tools
 dnf -y install gdisk 
 dnf -y install cifs-utils 
 dnf -y install at 
 dnf -y install wget 
 dnf -y install lvm2 
-dny -y install star 
+dnf -y install star 
 dnf -y install git 
 dnf -y install acpid 
 dnf -y install tmux 
