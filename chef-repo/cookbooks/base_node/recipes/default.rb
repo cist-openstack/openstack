@@ -8,33 +8,40 @@
 #
 
 # Create directories
-
 directory '/etc/telegraf' do
-  action :create
   owner 'telegraf'
   mode '0755'
+  action :create
 end
 
 directory '/etc/telegraf/scripts' do
-  action :create
   owner 'telegraf'
   mode '0755'
+  action :create
 end
 
 directory '/var/log/telegraf' do
-  action :create
   owner 'telegraf'
   group 'telegraf'
   mode '666'
   recursive true
+  action :create
 end
 
+# Create our snapstack local repository
 yum_repository 'snapstack' do
   description "SnapStack Repository"
   baseurl "http://snapstack.cloud/snapstack_repo"
   enabled true
   gpgcheck false
   action :create
+end
+
+# Make a cron to run chef-client every 60 mins
+cron 'chef-client' do
+  minute '0'
+  hour '*'
+  command '/usr/bin/chef-client'
 end
 
 # Install packages
@@ -51,11 +58,7 @@ package 'base_packages' do
   action :upgrade
 end
 
-execute 'download telegraf' do
-  command 'wget https://dl.influxdata.com/telegraf/releases/telegraf-1.2.1.x86_64.rpm'
-  command 'yum -y localinstall telegraf-1.2.1.x86_64.rpm'
-end
-
+# Change permissions on /var/log/messages
 file '/var/log/messages' do
   mode '0666'
 end
