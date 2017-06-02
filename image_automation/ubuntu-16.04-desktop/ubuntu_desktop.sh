@@ -12,10 +12,6 @@ sudo dpkg -i telegraf_1.2.1_amd64.deb
 # dpkg cloud-init
 dpkg-reconfigure cloud-init
 
-# Tweak the ssh settings
-sed -ie 's/.*PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config;
-sed -ie 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-
 # Create the x11vnc service
 echo "[Unit]
 Description=Start x11vnc at startup.
@@ -52,8 +48,6 @@ systemctl restart sshd
 systemctl restart ssh
 systemctl start chrony
 systemctl enable chrony
-systemctl stop firewalld
-systemctl disable firewalld
 
 # generate keys
 dpkg-reconfigure openssh-server
@@ -62,13 +56,13 @@ dpkg-reconfigure openssh-server
 apt-get -y upgrade
 
 # Set /etc/cloud/cloud.cfg
-git clone https://github.com/cist-openstack/openstack.git
+git clone https://github.com/cist-openstack/openstack.git /tmp/openstack
 unalias cp
-cp -f openstack/image_automation/ubuntu/cloud.cfg /etc/cloud/cloud.cfg
-cp -f openstack/image_automation/ubuntu/make_keys.sh /etc/init.d/make_keys.sh
-cp -f openstack/image_automation/ubuntu/sshd_config /etc/ssh/sshd_config
-cp -f openstack/image_automation/ubuntu/sudoers /etc/sudoers
-cp -f openstack/telegraf/telegraf.conf /etc/telegraf/telegraf.conf
+cp -f /tmp/openstack/image_automation/ubuntu/cloud.cfg /etc/cloud/cloud.cfg
+cp -f /tmp/openstack/image_automation/ubuntu/make_keys.sh /etc/init.d/make_keys.sh
+cp -f /tmp/openstack/image_automation/ubuntu/sshd_config /etc/ssh/sshd_config
+cp -f /tmp/openstack/image_automation/ubuntu/sudoers /etc/sudoers
+cp -f /tmp/openstack/telegraf/telegraf.conf /etc/telegraf/telegraf.conf
 chmod 755 /etc/init.d/make_keys.sh
 
 echo "############################################################################"
