@@ -7,11 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-#cookbook_file '/etc/kubernetes/kubelet' do
-#  source 'kubelet'
-#  action :create
-#end
-
 template '/etc/kubernetes/kubelet' do
   source 'kubelet.erb'
   variables(
