@@ -49,6 +49,7 @@ unalias cp
 /usr/bin/cp openstack/image_automation/centos7/sudoers /etc/sudoers
 /usr/bin/cp openstack/image_automation/centos7/cloud.cfg /etc/cloud/cloud.cfg
 /usr/bin/cp openstack/image_automation/centos7/grub /etc/default/grub
+/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
 # Start chrony, telegraf, firewall, cloud-init
 systemctl start chronyd
 systemctl enable chronyd
