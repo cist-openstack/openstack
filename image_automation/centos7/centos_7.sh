@@ -43,13 +43,13 @@ sudo /usr/bin/yum -y localinstall telegraf-1.2.1.x86_64.rpm
 /usr/bin/yum -y upgrade;
 
 # Configure telegraf
-/usr/bin/git clone https://github.com/cist-openstack/openstack.git
+/usr/bin/git clone https://github.com/cist-openstack/openstack.git /tmp/openstack
 unalias cp
-/usr/bin/cp openstack/telegraf/hangar-snapstack-lab/telegraf.conf /etc/telegraf/telegraf.conf
-/usr/bin/cp openstack/image_automation/centos7/sudoers /etc/sudoers
-/usr/bin/cp openstack/image_automation/centos7/cloud.cfg /etc/cloud/cloud.cfg
-/usr/bin/cp openstack/image_automation/centos7/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0
-/usr/bin/cp openstack/image_automation/centos7/grub /etc/default/grub
+/usr/bin/cp /tmp/openstack/telegraf/hangar-snapstack-lab/telegraf.conf /etc/telegraf/telegraf.conf
+/usr/bin/cp /tmp/openstack/image_automation/centos7/sudoers /etc/sudoers
+/usr/bin/cp /tmp/openstack/image_automation/centos7/cloud.cfg /etc/cloud/cloud.cfg
+/usr/bin/cp /tmp/openstack/image_automation/centos7/ifcfg-eth0 /etc/sysconfig/network-scripts/ifcfg-eth0
+/usr/bin/cp /tmp/openstack/image_automation/centos7/grub /etc/default/grub
 /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
 # Start chrony, telegraf, firewall, cloud-init
 systemctl start chronyd
