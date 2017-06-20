@@ -75,6 +75,9 @@ cp -f /tmp/openstack/image_automation/kali-4.9.0/sshd_config /etc/ssh/sshd_confi
 cp -f /tmp/openstack/image_automation/kali-4.9.0/sudoers /etc/sudoers
 cp -f /tmp/openstack/telegraf/telegraf.conf /etc/telegraf/telegraf.conf
 cp -f /tmp/openstack/image_automation/kali-4.9.0/interfaces /etc/network/interfaces
+cp -f /tmp/openstack/image_automation/kali-4.9.0/grub /etc/default/grub
+update-grub
+
 chmod 755 /etc/init.d/make_keys
 update-rc.d make_keys defaults
 
