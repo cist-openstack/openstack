@@ -54,6 +54,8 @@ systemctl restart sshd
 systemctl restart ssh
 systemctl start chrony
 systemctl enable chrony
+systemctl start firewalld
+systemctl enable firewalld
 
 # generate keys
 dpkg-reconfigure openssh-server
@@ -65,12 +67,13 @@ apt-get -y upgrade
 git clone https://github.com/cist-openstack/openstack.git /tmp/openstack
 unalias cp
 cp -f /tmp/openstack/image_automation/kali-4.9.0/cloud.cfg /etc/cloud/cloud.cfg
-cp -f /tmp/openstack/image_automation/kali-4.9.0/make_keys.sh /etc/init.d/make_keys.sh
+cp -f /tmp/openstack/image_automation/kali-4.9.0/make_keys /etc/init.d/make_keys
 cp -f /tmp/openstack/image_automation/kali-4.9.0/sshd_config /etc/ssh/sshd_config
 cp -f /tmp/openstack/image_automation/kali-4.9.0/sudoers /etc/sudoers
 cp -f /tmp/openstack/telegraf/telegraf.conf /etc/telegraf/telegraf.conf
 cp -f /tmp/openstack/image_automation/kali-4.9.0/interfaces /etc/network/interfaces
-chmod 755 /etc/init.d/make_keys.sh
+chmod 755 /etc/init.d/make_keys
+update-rc.d make_keys defaults
 
 # Clean up apt
 apt -y autoremove
