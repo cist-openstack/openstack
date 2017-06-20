@@ -13,6 +13,7 @@ sudo dpkg -i telegraf_1.2.1_amd64.deb
 dpkg-reconfigure cloud-init
 
 # Create the x11vnc service
+# panther shall be the VNC user
 echo "[Unit]
 Description=Start x11vnc at startup.
 After=multi-user.target
@@ -48,6 +49,7 @@ systemctl restart sshd
 systemctl restart ssh
 systemctl start chrony
 systemctl enable chrony
+systemctl enable cloud-init
 
 # generate keys
 dpkg-reconfigure openssh-server
@@ -58,20 +60,22 @@ apt-get -y upgrade
 # Set /etc/cloud/cloud.cfg
 git clone https://github.com/cist-openstack/openstack.git /tmp/openstack
 unalias cp
-cp -f /tmp/openstack/image_automation/ubuntu/cloud.cfg /etc/cloud/cloud.cfg
-cp -f /tmp/openstack/image_automation/ubuntu/make_keys.sh /etc/init.d/make_keys.sh
-cp -f /tmp/openstack/image_automation/ubuntu/sshd_config /etc/ssh/sshd_config
-cp -f /tmp/openstack/image_automation/ubuntu/sudoers /etc/sudoers
+cp -f /tmp/openstack/image_automation/ubuntu-16.04-desktop/cloud.cfg /etc/cloud/cloud.cfg
+cp -f /tmp/openstack/image_automation/ubuntu-16.04-desktop/make_keys.sh /etc/init.d/make_keys.sh
+cp -f /tmp/openstack/image_automation/ubuntu-16.04-desktop/sshd_config /etc/ssh/sshd_config
+cp -f /tmp/openstack/image_automation/ubuntu-16.04-desktop/sudoers /etc/sudoers
 cp -f /tmp/openstack/telegraf/telegraf.conf /etc/telegraf/telegraf.conf
+cp -f /tmp/openstack/image_automation/ubuntu-16.04-desktop/interfaces /etc/network/interfaces
+cp -f /tmp/openstack/image_automation/ubuntu-16.04-desktop/grub /etc/default/grub
+update-grub
 chmod 755 /etc/init.d/make_keys.sh
 
 echo "############################################################################"
 echo "############################################################################"
 echo "############################################################################"
 echo "############################################################################"
-echo "############    CONFIGURE VNC PASSWD (VNCSTOREPASSWD)   ####################"
+echo "############       CONFIGURE VNC PASSWD (VNCPASSWD)     ####################"
 echo "############       CONFIGURE DEFAULT USER PASSWORD      ####################"
-echo "############       CONFIGURE SUDO ACCESS FOR USERS      ####################"
 echo "############################################################################"
 echo "############################################################################"
 echo "############################################################################"
