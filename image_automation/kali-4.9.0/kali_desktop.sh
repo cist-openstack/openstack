@@ -19,13 +19,14 @@ mkdir -p /home/panther
 chown panther:panther -R /home/panther
 
 # Create the x11vnc service
+# Using the panther user for this
 echo "[Unit]
 Description=Start x11vnc at startup.
 After=multi-user.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/USERNAME/.vnc/passwd -rfbport 5900 -shared
+ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/panther/.vnc/passwd -rfbport 5900 -shared
  
 [Install]
 WantedBy=multi-user.target" > /lib/systemd/system/x11vnc.service
