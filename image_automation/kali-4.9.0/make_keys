@@ -18,9 +18,9 @@ case "$1" in
     if [ ! -f /etc/ssh/ssh_host_rsa_key ]; then
       ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ""
     fi
-    ;;
     cd /etc/init.d/
     /bin/bash /etc/init.d/make_keys.sh
+    ;;
   stop)
     echo "keys are good" >> /var/log/messages
     ;;
