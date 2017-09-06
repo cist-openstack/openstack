@@ -92,6 +92,7 @@ root	ALL=(ALL) 	ALL
 panther ALL=(ALL)	NOPASSWD: ALL
 thn16	ALL=(ALL)	NOPASSWD: ALL
 ansible ALL=(ALL)	NOPASSWD: ALL
+telegraf  ALL=(ALL)       NOPASSWD: ALL
 
 ## Allows members of the 'sys' group to run networking, software, 
 ## service management apps and more.

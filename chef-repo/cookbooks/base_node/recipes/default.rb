@@ -7,6 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# Create repos
+cookbook_file '/etc/yum.repos.d/all.repo' do
+  source 'all.repo'
+  action :create
+end
+
 # Create directories
 directory '/etc/telegraf' do
   owner 'telegraf'
@@ -20,23 +26,6 @@ directory '/etc/telegraf/scripts' do
   action :create
 end
 
-directory '/var/log/telegraf' do
-  owner 'telegraf'
-  group 'telegraf'
-  mode '666'
-  recursive true
-  action :create
-end
-
-# Create our snapstack local repository
-yum_repository 'snapstack' do
-  description "SnapStack Repository"
-  baseurl "http://snapstack.cloud/snapstack_repo"
-  enabled true
-  gpgcheck false
-  action :create
-end
-
 # Make a cron to run chef-client every 60 mins
 cron 'chef-client' do
   minute '0'
@@ -46,8 +35,7 @@ end
 
 # Install packages
 package 'base_packages' do
-  package_name ['epel-release',
-                'wget',
+  package_name ['wget',
                 'mlocate',
                 'vim',
                 'chrony',
@@ -73,6 +61,12 @@ end
 # host file
 cookbook_file '/etc/hosts' do
   source 'hosts'
+  action :create
+end
+
+# repos file
+cookbook_file '/etc/yum.repos.d/all.repo' do
+  source 'all.repo'
   action :create
 end
 
@@ -124,11 +118,6 @@ end
 
 cookbook_file '/etc/chrony.conf' do
   source 'chrony.conf'
-  action :create
-end
-
-cookbook_file '/etc/telegraf/scripts/all_hosts' do
-  source 'all_hosts'
   action :create
 end
 

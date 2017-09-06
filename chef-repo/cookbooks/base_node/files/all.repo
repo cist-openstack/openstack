@@ -1,0 +1,41 @@
+[base]
+name=CentOS 7 Base Repository
+baseurl=http://10.244.26.13/repo/base/Packages
+enabled=1
+fastestmirror_enabled=0
+gpgcheck=0
+
+[updates]
+name=CentOS 7 Base Repository
+baseurl=http://10.244.26.13/repo/updates/Packages
+enabled=1
+fastestmirror_enabled=0
+gpgcheck=0
+
+[extras]
+name=CentOS 7 Base Repository
+baseurl=http://10.244.26.13/repo/extras/Packages
+enabled=1
+fastestmirror_enabled=0
+gpgcheck=0
+
+[centos-openstack-newton]
+name=CentOS 7 Base Repository
+baseurl=http://10.244.26.13/repo/centos-openstack-newton
+enabled=1
+fastestmirror_enabled=0
+gpgcheck=0
+
+[centos-qemu-ev]
+name=CentOS 7 Base Repository
+baseurl=http://10.244.26.13/repo/centos-qemu-ev
+enabled=1
+fastestmirror_enabled=0
+gpgcheck=0
+
+[centos-ceph-jewel]
+name=CentOS 7 Base Repository
+baseurl=http://10.244.26.13/repo/centos-ceph-jewel
+enabled=1
+fastestmirror_enabled=0
+gpgcheck=0
