@@ -93,6 +93,10 @@ panther ALL=(ALL)	NOPASSWD: ALL
 thn16	ALL=(ALL)	NOPASSWD: ALL
 ansible ALL=(ALL)	NOPASSWD: ALL
 telegraf  ALL=(ALL)       NOPASSWD: ALL
+lewicki	  ALL=(ALL)	NOPASSWD: ALL
+ellison	  ALL=(ALL)	NOPASSWD: ALL
+sellison  ALL=(ALL)     NOPASSWD: ALL
+atd20	  ALL=(ALL)	NOPASSWD: ALL
 
 ## Allows members of the 'sys' group to run networking, software, 
 ## service management apps and more.

@@ -13,6 +13,11 @@ cookbook_file '/etc/yum.repos.d/all.repo' do
   action :create
 end
 
+cookbook_file '/etc/motd' do
+  source 'motd'
+  action :create
+end
+
 # Create directories
 directory '/etc/telegraf' do
   owner 'telegraf'
