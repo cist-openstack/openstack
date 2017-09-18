@@ -1,0 +1,27 @@
+#DMZ network
+127.0.0.1   	localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1       	localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+10.244.26.11    controller      newton-controller.cist.pitt.edu
+10.244.26.12    network         newton-network.cist.pitt.edu
+10.244.26.13	hv1		hv1.cist.pitt.edu
+10.244.26.20    mega            megacompute.cist.pitt.edu
+10.244.26.21    compute1        compute1.cist.pitt.edu
+10.244.26.22    compute2        compute2.cist.pitt.edu
+10.244.26.23    compute3        compute3.cist.pitt.edu
+10.244.26.24    compute4        compute4.cist.pitt.edu
+10.244.26.25    compute5        compute5.cist.pitt.edu
+10.244.26.26    compute6        compute6.cist.pitt.edu
+10.244.26.27    compute7        compute7.cist.pitt.edu
+10.244.26.28    compute8        compute8.cist.pitt.edu
+10.244.26.29    compute9        compute9.cist.pitt.edu
+10.244.26.104   grafana         grafana.snapstack.cloud
+10.244.26.106   chef            chef.snapstack.cloud
+10.244.26.108   help		help.snapstack.cloud
+10.244.26.123   proxy		proxy.snapstack.cloud
+
+10.244.26.101   master          k8s-master.snapstack.cloud
+10.244.26.102   k8s-3           k8s-3.snapstack.cloud
+10.244.26.103   k8s-1           k8s-1.snapstack.cloud
+10.244.26.110   k8s-2           k8s-2.snapstack.cloud
+10.244.26.116   k8s-4           k8s-4.snapstack.cloud
