@@ -16,6 +16,11 @@ cookbook_file '/etc/kubernetes/apiserver' do
   action :create
 end
 
+cookbook_file '/etc/kubernetes/controller-manager' do
+  source 'controller-manager'
+  action :create
+end
+
 service 'etcd' do
   action [:enable, :start]
 end

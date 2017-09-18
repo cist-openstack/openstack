@@ -7,40 +7,40 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# Create directories
-
-directory '/etc/telegraf' do
+# Create repos
+cookbook_file '/etc/yum.repos.d/all.repo' do
+  source 'all.repo'
   action :create
+end
+
+cookbook_file '/etc/motd' do
+  source 'motd'
+  action :create
+end
+
+# Create directories
+directory '/etc/telegraf' do
   owner 'telegraf'
   mode '0755'
+  action :create
 end
 
 directory '/etc/telegraf/scripts' do
-  action :create
   owner 'telegraf'
   mode '0755'
+  action :create
 end
 
-directory '/var/log/telegraf' do
-  action :create
-  owner 'telegraf'
-  group 'telegraf'
-  mode '666'
-  recursive true
-end
-
-yum_repository 'snapstack' do
-  description "SnapStack Repository"
-  baseurl "http://snapstack.cloud/snapstack_repo"
-  enabled true
-  gpgcheck false
-  action :create
+# Make a cron to run chef-client every 60 mins
+cron 'chef-client' do
+  minute '0'
+  hour '*'
+  command '/usr/bin/chef-client'
 end
 
 # Install packages
 package 'base_packages' do
-  package_name ['epel-release',
-                'wget',
+  package_name ['wget',
                 'mlocate',
                 'vim',
                 'chrony',
@@ -51,11 +51,7 @@ package 'base_packages' do
   action :upgrade
 end
 
-execute 'download telegraf' do
-  command 'wget https://dl.influxdata.com/telegraf/releases/telegraf-1.2.1.x86_64.rpm'
-  command 'yum -y localinstall telegraf-1.2.1.x86_64.rpm'
-end
-
+# Change permissions on /var/log/messages
 file '/var/log/messages' do
   mode '0666'
 end
@@ -70,6 +66,12 @@ end
 # host file
 cookbook_file '/etc/hosts' do
   source 'hosts'
+  action :create
+end
+
+# repos file
+cookbook_file '/etc/yum.repos.d/all.repo' do
+  source 'all.repo'
   action :create
 end
 
@@ -121,11 +123,6 @@ end
 
 cookbook_file '/etc/chrony.conf' do
   source 'chrony.conf'
-  action :create
-end
-
-cookbook_file '/etc/telegraf/scripts/all_hosts' do
-  source 'all_hosts'
   action :create
 end
 

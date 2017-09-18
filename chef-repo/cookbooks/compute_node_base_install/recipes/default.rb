@@ -7,23 +7,38 @@
 # All rights reserved - Do Not Redistribute
 #
 yum_package 'base_packages' do
-  package_name ['epel-release',
-                'wget',
+  package_name ['wget',
                 'mlocate',
                 'vim',
                 'chrony',
-                'centos-release-openstack-liberty',
                 'git',
                 'python-openstackclient',
                 'openstack-packstack',
                 'erlang',
+                'gnome-boxes',
+                'virt-install',
+                'virt-manager',
+                'virt-viewer',
+                'virt-top',
+                'libguestfs-inspect-icons',
+                'libguestfs-tools',
+                'libguestfs-tools-c',
+                'libvirt',
+                'qemu-kvm',
+                'qemu-kvm-tools',
+                'libvirt',
+                'libvirt-client',
+                'virt-who',
+                'fence-virtd-libvirt',
+                'fence-virtd-multicast',
+                'fence-virtd-serial',
+                'libvirt-cim',
+                'libvirt-java',
+                'libvirt-snmp',
+                'perl-Sys-Virt',
                 'tigervnc',
                 'tigervnc-server']
   action :upgrade
-end
-
-execute 'yum groupinstall -y "Virtualization" "Virtualization Client" "Virtualization Hypervisor" "Virtualization Platform" "Virtualization Tools"' do
-  user 'root'
 end
 
 execute 'yum -y upgrade' do
