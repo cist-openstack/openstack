@@ -4,25 +4,83 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-04-01</lastmod>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
     <url>
-     <loc>/getting_started/</loc>
-     <lastmod>2017-04-01</lastmod>
+     <loc>/user_guide/getting_started/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>/user_guide/explore_dashboard/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/user_guide/setup/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/user_guide/image_info/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/user_guide/flavors/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/user_guide/launching_windows/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
+        
     <url>
-     <loc>/setup/</loc>
-     <lastmod>2017-04-01</lastmod>
+     <loc>/admin_guide/getting_started/</loc>
+     <lastmod>2017-10-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>/admin_guide/packstack/packstack_index/</loc>
+     <lastmod>2017-10-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>

@@ -2,53 +2,568 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to the Computer Information Systems and Technology's OpenStack at the University of Pittsburgh at Bradford\n\n\nTo get started, please request access by emailing cist.openstack@pitt.edu.\n\nInclude your first and last name, Pitt username, and project justification.\n\nYour account will be created within 1-2 business days.", 
+            "text": "CIS\nT OpenStack\n\n\nWelcome\n\n\nWelcome to the Computer Information Systems and Technology's OpenStack at the University of Pittsburgh at Bradford. This project is an educational use case to show the benefits of flexible, private cloud computing. The overall project is utilizing a plethora of different technologies and there are roughly 44 physical nodes that make up our instance. Beyond just setting up a cloud, one of the main goals of this project is to enforce a \"code as an infrastructure\" environment, with automation always at the forefront of the changes that are made. Code as an infrastructure allows us to quickly recover from a catastrophic event or to scale horizontally with ease. This is achieved with tools like Ansible and Git, with plans to expand this idea further with Jenkins, Chef, and Screwdriver.\n\n\nOur Setup\n\n\n\n\nDell PowerEdge R510 and HP Proliant servers make up the physical hardware.\n\n\nCentOS 7 Linux is the Operating System that everything runs on.  \n\n\nKernel Based Virtual Machines (KVM) is the virtualization layer.  \n\n\nOpenStack and all of its components (Nova, Neutron, Glance, Horizon, Swift, Keystone) make up the virtualization management and cloud layer.  \n\n\nOpenvSwitch is the underlying software defined network.\n\n\nMySQL is the database for the backend OpenStack components.  \n\n\nApache is used for the reverse proxying of all websites and student projects.\n\n\nAnsible is the continuous deployment tool that is used for concurrent node management.  \n\n\nTelegraf is the metric collector used for gathering information on the nodes for monitoring.  \n\n\nInfluxDB is the time-series database used for storing the metrics collected by Telegraf.  \n\n\nGrafana is the web-based graphing program that is used for monitoring and alerting.\n\n\nGit is used for our version management.\n\n\n\n\nA Guide to the Guides\n\n\n\n\nCheck out \nOpenStack's website\n to learn more about OpenStack. This is not a comprehensive guide to OpenStack, this is a guide for our specific use case.  \n\n\nCheck out the \nUser Guide\n if you are looking to get started with using OpenStack.  \n\n\nCheck out the \nAdmin Guide\n if you are helping with the project or have interest in how some of the backend is handled.  \n\n\nCheck out our \nGithub repository\n to see all of our OpenStack related code, this guide included!\n\n\nCheck out our \nGrafana monitoring dashboard\n to see how our stack is holding up.", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-the-computer-information-systems-and-technologys-openstack-at-the-university-of-pittsburgh-at-bradford", 
-            "text": "To get started, please request access by emailing cist.openstack@pitt.edu. \nInclude your first and last name, Pitt username, and project justification. \nYour account will be created within 1-2 business days.", 
-            "title": "Welcome to the Computer Information Systems and Technology's OpenStack at the University of Pittsburgh at Bradford"
+            "location": "/#cist-openstack", 
+            "text": "", 
+            "title": "CIS&amp;T OpenStack"
         }, 
         {
-            "location": "/getting_started/", 
-            "text": "", 
+            "location": "/#welcome", 
+            "text": "Welcome to the Computer Information Systems and Technology's OpenStack at the University of Pittsburgh at Bradford. This project is an educational use case to show the benefits of flexible, private cloud computing. The overall project is utilizing a plethora of different technologies and there are roughly 44 physical nodes that make up our instance. Beyond just setting up a cloud, one of the main goals of this project is to enforce a \"code as an infrastructure\" environment, with automation always at the forefront of the changes that are made. Code as an infrastructure allows us to quickly recover from a catastrophic event or to scale horizontally with ease. This is achieved with tools like Ansible and Git, with plans to expand this idea further with Jenkins, Chef, and Screwdriver.", 
+            "title": "Welcome"
+        }, 
+        {
+            "location": "/#our-setup", 
+            "text": "Dell PowerEdge R510 and HP Proliant servers make up the physical hardware.  CentOS 7 Linux is the Operating System that everything runs on.    Kernel Based Virtual Machines (KVM) is the virtualization layer.    OpenStack and all of its components (Nova, Neutron, Glance, Horizon, Swift, Keystone) make up the virtualization management and cloud layer.    OpenvSwitch is the underlying software defined network.  MySQL is the database for the backend OpenStack components.    Apache is used for the reverse proxying of all websites and student projects.  Ansible is the continuous deployment tool that is used for concurrent node management.    Telegraf is the metric collector used for gathering information on the nodes for monitoring.    InfluxDB is the time-series database used for storing the metrics collected by Telegraf.    Grafana is the web-based graphing program that is used for monitoring and alerting.  Git is used for our version management.", 
+            "title": "Our Setup"
+        }, 
+        {
+            "location": "/#a-guide-to-the-guides", 
+            "text": "Check out  OpenStack's website  to learn more about OpenStack. This is not a comprehensive guide to OpenStack, this is a guide for our specific use case.    Check out the  User Guide  if you are looking to get started with using OpenStack.    Check out the  Admin Guide  if you are helping with the project or have interest in how some of the backend is handled.    Check out our  Github repository  to see all of our OpenStack related code, this guide included!  Check out our  Grafana monitoring dashboard  to see how our stack is holding up.", 
+            "title": "A Guide to the Guides"
+        }, 
+        {
+            "location": "/user_guide/getting_started/", 
+            "text": "Let's Get Started!\n\n\nFirst thing is first - you need a \"project\" set up. A project refers to a collection of compute resources set aside just for you. Resources are RAM, CPUs, disk space, IP addresses, networks, routers, volumes, object storage, SSH keys, and the maximum number of instances that you can make.\n\n\nStudent defaults:\n\n- 4GB RAM\n\n- 4 CPU\n\n- 200GB of disk\n\n- 4 Networks\n\n- 4 Routers\n\n- 4 Instances  \n\n\nHow Do I Set Up a Project?\n\n\nPlease contact the CIST-OpenStack team at \ncist.openstack@gmail.edu\n to request a project be created for you. Please include your full name, your Pitt username, and your justification for compute resources. If the student defaults above are not enough to facilitate your needs, please explain why and what you need more of.  \n\n\nNote that when a project is created for you, it is still \nup to you\n to configure your firewall rules, network(s), ports, router(s), SSH keys (optional), volumes, and so on. Administrators simply create the project, allocate you a specific set of resources, and give you administrative access.\n\n\nCan My Resources Be Combined to a Single Instance?\n\n\nSure, you can use your resources however you please. If you would like to create a single virtual machine that consumes all of your RAM, CPU, and disk, that is up to you. If you would like to create 4 small virtual machines you are free to do so as well. You may delete and recycle your resources as many times as you would like, but you will be unable to exceed your quota.\n\n\nHow Do I Create an Instance? Err, wait - what is an instance?\n\n\nAn \"instance\" is simply a virtual machine that lives on one of compute nodes in the OpenStack environment. Once your project has been created by the CIST-OpenStack team , follow the \"Setting up Your Project\" guide to get started.", 
             "title": "Getting Started"
         }, 
         {
-            "location": "/setup/", 
-            "text": "Create a Network\n\n\nCreate a Subnet\n\n\nCreate a Router\n\n\nCreate Access Rules\n\n\nDownload SSH Keys (Optional)\n\n\nLaunch an Instance", 
+            "location": "/user_guide/getting_started/#lets-get-started", 
+            "text": "First thing is first - you need a \"project\" set up. A project refers to a collection of compute resources set aside just for you. Resources are RAM, CPUs, disk space, IP addresses, networks, routers, volumes, object storage, SSH keys, and the maximum number of instances that you can make.  Student defaults: \n- 4GB RAM \n- 4 CPU \n- 200GB of disk \n- 4 Networks \n- 4 Routers \n- 4 Instances", 
+            "title": "Let's Get Started!"
+        }, 
+        {
+            "location": "/user_guide/getting_started/#how-do-i-set-up-a-project", 
+            "text": "Please contact the CIST-OpenStack team at  cist.openstack@gmail.edu  to request a project be created for you. Please include your full name, your Pitt username, and your justification for compute resources. If the student defaults above are not enough to facilitate your needs, please explain why and what you need more of.    Note that when a project is created for you, it is still  up to you  to configure your firewall rules, network(s), ports, router(s), SSH keys (optional), volumes, and so on. Administrators simply create the project, allocate you a specific set of resources, and give you administrative access.", 
+            "title": "How Do I Set Up a Project?"
+        }, 
+        {
+            "location": "/user_guide/getting_started/#can-my-resources-be-combined-to-a-single-instance", 
+            "text": "Sure, you can use your resources however you please. If you would like to create a single virtual machine that consumes all of your RAM, CPU, and disk, that is up to you. If you would like to create 4 small virtual machines you are free to do so as well. You may delete and recycle your resources as many times as you would like, but you will be unable to exceed your quota.", 
+            "title": "Can My Resources Be Combined to a Single Instance?"
+        }, 
+        {
+            "location": "/user_guide/getting_started/#how-do-i-create-an-instance-err-wait-what-is-an-instance", 
+            "text": "An \"instance\" is simply a virtual machine that lives on one of compute nodes in the OpenStack environment. Once your project has been created by the CIST-OpenStack team , follow the \"Setting up Your Project\" guide to get started.", 
+            "title": "How Do I Create an Instance? Err, wait - what is an instance?"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/", 
+            "text": "Accessing Your project\n\n\nA project has a lot of moving parts. By default, you have probably been assigned a specific set of resources - but you are not ready to play just yet. Creating a functional project requires a bit of work beyond what the administrator has performed for you, but the beauty in OpenStack is that you can do it all yourself from anywhere you please. The backend is configured so that you can create your own networks, subnets, routers, firewall rules, SSH keys, allocate disk, memory, and CPU, and launch different operating systems without ever having to physically interact with the hardware. But first you must have an account! If you already have an account, proceed to the next steps. If you still need to be allocated a user account and project, please contact the CIST-OpenStack team at \ncist.openstack@gmail.com\n.\n\n\nI Have My Account - Now What?\n\n\nPitt's OpenStack instance, also known as \nSnapStack\n can be accessed at http://snapstack.cloud. You must be on campus or connected to the VPN in order to access the dashboard. Log in using the credentials supplied to you by the CIST-OpenStack Administrator who provisioned your account.  \n\n\nExplore the Dashboard\n\n\nBefore we can do anything, it's best to get familiar with the dashboard so that we have a general idea of where things are, what we can do, and how to do it. Once you're logged in check out the navbar on the left side. From top to bottom let's expand these tabs to get an idea of what we can do.  \n\n\nProject\n\n\nClicking the \"Project\" tab will display the three main components of every project; Compute, Network, and Object Store.  \n\n\nCompute\n\n\nThis is where you manage your core resources - such as your instances, storage, and security.\n\n\n\n\nOverview:\n Shows your project's usage versus your quota.\n\n\nInstances:\n This is where your virtual machines are launched, deleted, edited, etc.\n\n\nVolumes:\n Volumes are attachable virtual disks for your instances.\n\n\nImages:\n Images are the deployable operating systems that you can use to spin up new virtual machines.  \n\n\nAccess and Security:\n Used for managing firewall rules and SSH key-pairs.\n\n\n\n\nNetwork\n\n\nIf you guessed this is where you manage your network(s), you win.\n\n\n\n\nNetwork Topology:\n A map of your network.  \n\n\nNetworks:\n These are your private and public networks. Public networks are networks that have the ability to talk directly to the internet, which we have a very scarce amount of IP addresses for. Private networks are NAT networks, which are exactly like your home network or public WiFi - you can reach the internet using a private network but the internet cannot reach you directly. You can create multiple private networks for testing and make them as large as you like (but remember, you can only make so many instances.)  \n\n\nRouters:\n Virtual routers for your networks to attach to. Routers of course are necessary to allow your network(s) to talk to other networks.\n\n\n\n\nObject Store\n\n\n\n\nContainers:\n Containers are pseudo-folders that you can store objects in to be accessed by your instances. An \"object\" is just a file - it can be a document, a PDF, an MP3, and so on. These are retrieved using a REST API - every object has a URL assigned to it and can be downloaded using utilities such as Linux's \"wget\", PowerShell's \"Invoke-WebRequest\", or by visiting the URL and letting your browser prompt you to save the object.  \n\n\n\n\nAdmin\n\n\nThe Admin section shows information on all projects and the actual OpenStack nodes.  \n\n\nSystem\n\n\n\n\nOverview:\n A usage summary of your project versus your quota.  \n\n\nResource Usage:\n A detailed analysis with statistics of all of the projects that you have administrative access over.  \n\n\nHypervisors:\n A detailed analysis of all of OpenStack's hypervisors. This breaks down the total and available resources of each compute node. \nCompute nodes are where our instances live - they are simply hypervisors that get told what to do by the controller node, using the network node to communicate, perform DHCP, and pull metadata for instances.\n  \n\n\nHost Aggregates:\n Statistics on the different availability-zones and the nodes in them.  \n\n\nInstances:\n All instances of all projects that you have administrative access over and which hypervisor they are on. This is incredibly useful for troubleshooting specific instances that are malfunctioning.\n\n\nVolumes:\n All volume information.  \n\n\nFlavors:\n All flavor information. A \"flavor\" is a pre-determined set of RAM, CPU, disk, and swap. When creating instances, you will always choose a flavor which decides how big or small the instance is, ultimately deciding where and how your resources will be allocated. Flavors can be created quickly to give you more flexibility when assigning resources to your instances.  \n\n\nImages:\n All images across all projects. Images can be created and edited here; for example, if an image is 8GB in size, it is wise to set a minimum disk size for the image of 10GB+ - these defaults can be changed here.\n\n\nNetworks:\n All networks for all projects.  \n\n\nRouters:\n All routers for all projects.  \n\n\nDefaults:\n Default quota size for all new projects.\n\n\nMetadata:\n Special metadata that can be injected into an instance for deeper customizations.\n\n\nSystem Information:\n Services that are running and the state those services are in. Great for troubleshooting.\n\n\n\n\nIdentity\n\n\nUsed for managing projects and users.  \n\n\n\n\nProjects:\n All aspects of projects can be managed here; such as project name, quotas, members, access, and so on.  \n\n\nUsers:\n All aspects of users can be managed here; such as access, passwords, names, and so on.\n\n\n\n\nSwitching Projects and Tweaking User Settings\n\n\nSwitching Projects\n\n\nOn the top left-center of the screen you will see a tab that has the name of your project. If you are a member of any other projects you can toggle between them here.  \n\n\nTweaking User Settings\n\n\nOn the top right of the screen you will see a tab that has your user name. You can click the dropdown menu for the user settings and to log out.", 
+            "title": "Exploring the Dashboard"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#accessing-your-project", 
+            "text": "A project has a lot of moving parts. By default, you have probably been assigned a specific set of resources - but you are not ready to play just yet. Creating a functional project requires a bit of work beyond what the administrator has performed for you, but the beauty in OpenStack is that you can do it all yourself from anywhere you please. The backend is configured so that you can create your own networks, subnets, routers, firewall rules, SSH keys, allocate disk, memory, and CPU, and launch different operating systems without ever having to physically interact with the hardware. But first you must have an account! If you already have an account, proceed to the next steps. If you still need to be allocated a user account and project, please contact the CIST-OpenStack team at  cist.openstack@gmail.com .", 
+            "title": "Accessing Your project"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#i-have-my-account-now-what", 
+            "text": "Pitt's OpenStack instance, also known as  SnapStack  can be accessed at http://snapstack.cloud. You must be on campus or connected to the VPN in order to access the dashboard. Log in using the credentials supplied to you by the CIST-OpenStack Administrator who provisioned your account.", 
+            "title": "I Have My Account - Now What?"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#explore-the-dashboard", 
+            "text": "Before we can do anything, it's best to get familiar with the dashboard so that we have a general idea of where things are, what we can do, and how to do it. Once you're logged in check out the navbar on the left side. From top to bottom let's expand these tabs to get an idea of what we can do.", 
+            "title": "Explore the Dashboard"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#project", 
+            "text": "Clicking the \"Project\" tab will display the three main components of every project; Compute, Network, and Object Store.", 
+            "title": "Project"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#compute", 
+            "text": "This is where you manage your core resources - such as your instances, storage, and security.   Overview:  Shows your project's usage versus your quota.  Instances:  This is where your virtual machines are launched, deleted, edited, etc.  Volumes:  Volumes are attachable virtual disks for your instances.  Images:  Images are the deployable operating systems that you can use to spin up new virtual machines.    Access and Security:  Used for managing firewall rules and SSH key-pairs.", 
+            "title": "Compute"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#network", 
+            "text": "If you guessed this is where you manage your network(s), you win.   Network Topology:  A map of your network.    Networks:  These are your private and public networks. Public networks are networks that have the ability to talk directly to the internet, which we have a very scarce amount of IP addresses for. Private networks are NAT networks, which are exactly like your home network or public WiFi - you can reach the internet using a private network but the internet cannot reach you directly. You can create multiple private networks for testing and make them as large as you like (but remember, you can only make so many instances.)    Routers:  Virtual routers for your networks to attach to. Routers of course are necessary to allow your network(s) to talk to other networks.", 
+            "title": "Network"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#object-store", 
+            "text": "Containers:  Containers are pseudo-folders that you can store objects in to be accessed by your instances. An \"object\" is just a file - it can be a document, a PDF, an MP3, and so on. These are retrieved using a REST API - every object has a URL assigned to it and can be downloaded using utilities such as Linux's \"wget\", PowerShell's \"Invoke-WebRequest\", or by visiting the URL and letting your browser prompt you to save the object.", 
+            "title": "Object Store"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#admin", 
+            "text": "The Admin section shows information on all projects and the actual OpenStack nodes.", 
+            "title": "Admin"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#system", 
+            "text": "Overview:  A usage summary of your project versus your quota.    Resource Usage:  A detailed analysis with statistics of all of the projects that you have administrative access over.    Hypervisors:  A detailed analysis of all of OpenStack's hypervisors. This breaks down the total and available resources of each compute node.  Compute nodes are where our instances live - they are simply hypervisors that get told what to do by the controller node, using the network node to communicate, perform DHCP, and pull metadata for instances.     Host Aggregates:  Statistics on the different availability-zones and the nodes in them.    Instances:  All instances of all projects that you have administrative access over and which hypervisor they are on. This is incredibly useful for troubleshooting specific instances that are malfunctioning.  Volumes:  All volume information.    Flavors:  All flavor information. A \"flavor\" is a pre-determined set of RAM, CPU, disk, and swap. When creating instances, you will always choose a flavor which decides how big or small the instance is, ultimately deciding where and how your resources will be allocated. Flavors can be created quickly to give you more flexibility when assigning resources to your instances.    Images:  All images across all projects. Images can be created and edited here; for example, if an image is 8GB in size, it is wise to set a minimum disk size for the image of 10GB+ - these defaults can be changed here.  Networks:  All networks for all projects.    Routers:  All routers for all projects.    Defaults:  Default quota size for all new projects.  Metadata:  Special metadata that can be injected into an instance for deeper customizations.  System Information:  Services that are running and the state those services are in. Great for troubleshooting.", 
+            "title": "System"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#identity", 
+            "text": "Used for managing projects and users.     Projects:  All aspects of projects can be managed here; such as project name, quotas, members, access, and so on.    Users:  All aspects of users can be managed here; such as access, passwords, names, and so on.", 
+            "title": "Identity"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#switching-projects-and-tweaking-user-settings", 
+            "text": "", 
+            "title": "Switching Projects and Tweaking User Settings"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#switching-projects", 
+            "text": "On the top left-center of the screen you will see a tab that has the name of your project. If you are a member of any other projects you can toggle between them here.", 
+            "title": "Switching Projects"
+        }, 
+        {
+            "location": "/user_guide/explore_dashboard/#tweaking-user-settings", 
+            "text": "On the top right of the screen you will see a tab that has your user name. You can click the dropdown menu for the user settings and to log out.", 
+            "title": "Tweaking User Settings"
+        }, 
+        {
+            "location": "/user_guide/setup/", 
+            "text": "Setting Up Your Project\n\n\nNow that we are a little more familiar with our dashboard, let's take the necessary steps to get started and launch an instance. But first, you may want to change your password from the default password provided to us by the administrator.\n\n\nChange Your Password\n\n\nLog in using the default credentials. Once logged in, on the top right you will see a dropdown menu that is your user name. Click it.\n\n- Settings\n\n- Change Password\n\n\nThat's it! Log out and back in again to test your password and we can proceed.  \n\n\nConfiguring Access and Security\n\n\nWithout configuring a \nsecurity group\n, our instance will never be accessible. A security group are the firewall rules. If a security group is not applied to an instance it will block all traffic by default. If a security group is not configured properly, our instance will be inaccessible.\n\n\nLaunching an Instance\n\n\nSince we have already explored the dashboard and reset our password, we're ready to launch an instance. This is all performed from the \nCompute\n tab in the left navbar.\n\n- Click \nCompute\n\n- Click \nInstances\n\n- Click \nLaunch Instance\n\n- Now we are presented with a menu with 5 tabs. Let's start with \nDetails\n.\n\n\nDetails\n\n\n\n\nAvailbility Zone:\n nova\n\n\nInstance Name:\n My first instance!** (whatever you want)\n\n\nFlavor:\n Choose an appropriate size for your instance. Remember that some images require a certain amount of resources so we must make sure we are giving ourselves enough resources or launching the instance may fail. If you need a refresher on what size the Flavors are, you can check \nhere\n for a full list - or just tilt your eyes slightly to the right and examine the specifications directly beneath the giant letters that say \"Flavor Details\".\n\n\nInstance Count:\n Choose how many instances you would like to launch.\n\n\nInstance Boot Source:\n Most likely you want to boot from an image, however there are options to boot from a volume or snapshot. More about this later.\n\n\nImage Name:\n These are the different images that are available to deploy. Select the image you'd like to use.  \n\n\n\n\n\n\nAccess and Security\n\n\n\n\nKey Pair\n - If you have not created a key pair, you can keep the default of \"No key pairs available\", otherwise go ahead and select the key pair you'd like to use.\n\n\nSecurity Groups\n - Select the security group that you configured previously. These are our firewall rules. If a security group is not selected, the instance will never be accessible as it will block all traffic by default.\n\n\n\n\n\n\nNetworking\n\n\nThis is a critical step and very easy to screw up. We always, 100% of the time want to choose a \nprivate\n network. By default you will have access to the \nadmin_private\n network. This is a /23 subnet this is shared among all projects in order to allow instances from different projects to communicate. In the future we will be able to create our own private networks to keep our instances segregated for testing.\n- \nAvailable networks:\n Select a private network.\n\n\n\n\nIgnore the last two tabs (\nPost Creation\n and \nAdvanced Options\n) and click \nLaunch\n.\n\n\n\n\nI Launched An Instance!\n\n\nLaunching an instance typically takes less than a few minutes before it is accessible, but this depends heavily on two factors: if this image has ever been launched on the compute node we landed on and the size of the image. Obviously an image that is 2GB is size will launch much faster than a 15GB image.\n\n\nWait - what do you mean, \"if this image has ever been launched on the compute node we landed on\"?\n\n\n\n\nFirst of all, we have a lot of compute nodes. Our controller node determines the best location for our instance by comparing the available resources of all of the compute nodes. When an image is deployed on a compute node for the first time, the entire image is copied to the compute node and stored for future use. So if a particular image has never been launched on a compute node before, the first time it is launched on that compute node it will take an extra long time as it needs to first copy the entire image file over. Once that image file is cached on the compute node, it will be stored permanently and will launch in a fraction of the time in the future. We do our best to \"burn\" in the images to all of the compute nodes before anyone uses them, but occasionally it's possible we missed one as images are being added frequently and targeting an instance on a specific compute node is not currently possible.", 
             "title": "Setting up Your Project"
         }, 
         {
-            "location": "/setup/#create-a-network", 
-            "text": "", 
-            "title": "Create a Network"
+            "location": "/user_guide/setup/#setting-up-your-project", 
+            "text": "Now that we are a little more familiar with our dashboard, let's take the necessary steps to get started and launch an instance. But first, you may want to change your password from the default password provided to us by the administrator.", 
+            "title": "Setting Up Your Project"
         }, 
         {
-            "location": "/setup/#create-a-subnet", 
-            "text": "", 
-            "title": "Create a Subnet"
+            "location": "/user_guide/setup/#change-your-password", 
+            "text": "Log in using the default credentials. Once logged in, on the top right you will see a dropdown menu that is your user name. Click it. \n- Settings \n- Change Password  That's it! Log out and back in again to test your password and we can proceed.", 
+            "title": "Change Your Password"
         }, 
         {
-            "location": "/setup/#create-a-router", 
-            "text": "", 
-            "title": "Create a Router"
+            "location": "/user_guide/setup/#configuring-access-and-security", 
+            "text": "Without configuring a  security group , our instance will never be accessible. A security group are the firewall rules. If a security group is not applied to an instance it will block all traffic by default. If a security group is not configured properly, our instance will be inaccessible.", 
+            "title": "Configuring Access and Security"
         }, 
         {
-            "location": "/setup/#create-access-rules", 
-            "text": "", 
-            "title": "Create Access Rules"
+            "location": "/user_guide/setup/#launching-an-instance", 
+            "text": "Since we have already explored the dashboard and reset our password, we're ready to launch an instance. This is all performed from the  Compute  tab in the left navbar. \n- Click  Compute \n- Click  Instances \n- Click  Launch Instance \n- Now we are presented with a menu with 5 tabs. Let's start with  Details .", 
+            "title": "Launching an Instance"
         }, 
         {
-            "location": "/setup/#download-ssh-keys-optional", 
-            "text": "", 
-            "title": "Download SSH Keys (Optional)"
+            "location": "/user_guide/setup/#details", 
+            "text": "Availbility Zone:  nova  Instance Name:  My first instance!** (whatever you want)  Flavor:  Choose an appropriate size for your instance. Remember that some images require a certain amount of resources so we must make sure we are giving ourselves enough resources or launching the instance may fail. If you need a refresher on what size the Flavors are, you can check  here  for a full list - or just tilt your eyes slightly to the right and examine the specifications directly beneath the giant letters that say \"Flavor Details\".  Instance Count:  Choose how many instances you would like to launch.  Instance Boot Source:  Most likely you want to boot from an image, however there are options to boot from a volume or snapshot. More about this later.  Image Name:  These are the different images that are available to deploy. Select the image you'd like to use.", 
+            "title": "Details"
         }, 
         {
-            "location": "/setup/#launch-an-instance", 
+            "location": "/user_guide/setup/#access-and-security", 
+            "text": "Key Pair  - If you have not created a key pair, you can keep the default of \"No key pairs available\", otherwise go ahead and select the key pair you'd like to use.  Security Groups  - Select the security group that you configured previously. These are our firewall rules. If a security group is not selected, the instance will never be accessible as it will block all traffic by default.", 
+            "title": "Access and Security"
+        }, 
+        {
+            "location": "/user_guide/setup/#networking", 
+            "text": "This is a critical step and very easy to screw up. We always, 100% of the time want to choose a  private  network. By default you will have access to the  admin_private  network. This is a /23 subnet this is shared among all projects in order to allow instances from different projects to communicate. In the future we will be able to create our own private networks to keep our instances segregated for testing.\n-  Available networks:  Select a private network.   Ignore the last two tabs ( Post Creation  and  Advanced Options ) and click  Launch .", 
+            "title": "Networking"
+        }, 
+        {
+            "location": "/user_guide/setup/#i-launched-an-instance", 
+            "text": "Launching an instance typically takes less than a few minutes before it is accessible, but this depends heavily on two factors: if this image has ever been launched on the compute node we landed on and the size of the image. Obviously an image that is 2GB is size will launch much faster than a 15GB image.  Wait - what do you mean, \"if this image has ever been launched on the compute node we landed on\"?   First of all, we have a lot of compute nodes. Our controller node determines the best location for our instance by comparing the available resources of all of the compute nodes. When an image is deployed on a compute node for the first time, the entire image is copied to the compute node and stored for future use. So if a particular image has never been launched on a compute node before, the first time it is launched on that compute node it will take an extra long time as it needs to first copy the entire image file over. Once that image file is cached on the compute node, it will be stored permanently and will launch in a fraction of the time in the future. We do our best to \"burn\" in the images to all of the compute nodes before anyone uses them, but occasionally it's possible we missed one as images are being added frequently and targeting an instance on a specific compute node is not currently possible.", 
+            "title": "I Launched An Instance!"
+        }, 
+        {
+            "location": "/user_guide/image_info/", 
+            "text": "Image Guide\n\n\n\n\nAccessing the different images varies between protocols and ports. Get familiar with the list so that you understand how to use the instance after launching.  \n\n\n\n\nCentOS 7 GUI\n\n\nOS: CentOS 7 \"Everything\"\n\nMinimum requirements:  1G RAM, 1 vCPU, 10G Disk\n\nAccess:\n\n\n SSH via port 22\n\n\n VNC via port 5901\n\nUsername: root  \n\n\nWindows Server 2012:\n\n\nOS: Windows Server 2012\n\nMinimum requirements: 2G RAM, 1vCPU, 60G Disk (win.medium)\n\nAccess:\n\n* Remote Desktop via IP address\n\nUsername: administrator", 
+            "title": "Image Information"
+        }, 
+        {
+            "location": "/user_guide/image_info/#image-guide", 
+            "text": "Accessing the different images varies between protocols and ports. Get familiar with the list so that you understand how to use the instance after launching.", 
+            "title": "Image Guide"
+        }, 
+        {
+            "location": "/user_guide/image_info/#centos-7-gui", 
+            "text": "OS: CentOS 7 \"Everything\" \nMinimum requirements:  1G RAM, 1 vCPU, 10G Disk \nAccess:   SSH via port 22   VNC via port 5901 \nUsername: root", 
+            "title": "CentOS 7 GUI"
+        }, 
+        {
+            "location": "/user_guide/image_info/#windows-server-2012", 
+            "text": "OS: Windows Server 2012 \nMinimum requirements: 2G RAM, 1vCPU, 60G Disk (win.medium) \nAccess: \n* Remote Desktop via IP address \nUsername: administrator", 
+            "title": "Windows Server 2012:"
+        }, 
+        {
+            "location": "/user_guide/flavors/", 
+            "text": "Flavor Reference List\n\n\n\n\n\n\n\n\nFlavor Name\n\n\nvCPUs\n\n\nRAM\n\n\nRoot Disk\n\n\nEphemeral Disk\n\n\nSwap Disk\n\n\n\n\n\n\n\n\n\n\nm1.tiny\n\n\n1\n\n\n512MB\n\n\n1GB\n\n\n0GB\n\n\n0Mb\n\n\n\n\n\n\nm1.tiny-small\n\n\n1\n\n\n1GB\n\n\n10GB\n\n\n0GB\n\n\n1024MB\n\n\n\n\n\n\nm1.small\n\n\n1\n\n\n2GB\n\n\n20GB\n\n\n0GB\n\n\n0MB\n\n\n\n\n\n\nwin.small\n\n\n1\n\n\n2GB\n\n\n50GB\n\n\n0GB\n\n\n2048MB\n\n\n\n\n\n\ngoldilocks\n\n\n1\n\n\n3GB\n\n\n50GB\n\n\n0GB\n\n\n3072MB\n\n\n\n\n\n\nm1.medium\n\n\n2\n\n\n4GB\n\n\n40GB\n\n\n0GB\n\n\n0MB\n\n\n\n\n\n\nwin.medium\n\n\n2\n\n\n4GB\n\n\n60GB\n\n\n0GB\n\n\n4096MB\n\n\n\n\n\n\nm1.large\n\n\n4\n\n\n8GB\n\n\n80GB\n\n\n0GB\n\n\n0MB\n\n\n\n\n\n\nwin.large\n\n\n4\n\n\n8GB\n\n\n80GB\n\n\n0GB\n\n\n8192MB\n\n\n\n\n\n\nm1.xlarge\n\n\n8\n\n\n16GB\n\n\n160GB\n\n\n0GB\n\n\n0MB", 
+            "title": "Flavor References"
+        }, 
+        {
+            "location": "/user_guide/flavors/#flavor-reference-list", 
+            "text": "Flavor Name  vCPUs  RAM  Root Disk  Ephemeral Disk  Swap Disk      m1.tiny  1  512MB  1GB  0GB  0Mb    m1.tiny-small  1  1GB  10GB  0GB  1024MB    m1.small  1  2GB  20GB  0GB  0MB    win.small  1  2GB  50GB  0GB  2048MB    goldilocks  1  3GB  50GB  0GB  3072MB    m1.medium  2  4GB  40GB  0GB  0MB    win.medium  2  4GB  60GB  0GB  4096MB    m1.large  4  8GB  80GB  0GB  0MB    win.large  4  8GB  80GB  0GB  8192MB    m1.xlarge  8  16GB  160GB  0GB  0MB", 
+            "title": "Flavor Reference List"
+        }, 
+        {
+            "location": "/user_guide/launching_windows/", 
+            "text": "Launching a Windows Image on Snapstack\n\n\nThere are a few steps involved before we can launch a Windows image on Openstack.\n\n- Create a new keypair\n\n- Launch an instance\n- Set our global variables to authenticate to OpenStack\n\n- Fetch and decrypt our password \n\n- Remote desktop to the instance\n\n\nCreating a keypair\n\n\nThe first step we must take is creating a keypair that will be used to fetch and decrypt our randomly generated password from OpenStack.\n- Log into the OpenStack dashboard and go to the \"Access and Security\" Tab\n\n\n\n- Click \"Create new keypair\" and choose a name for the  file\n * It should save as a .pem file\n * Keep this file safe and be aware of its location\n\n\nLaunching an instance\n\n\n\n\nOn the left-hand side of the OpenStack dashboard, under the \"Instances\" tab, choose \"launch Instance\"\n\n\n\n\n\n- Choose an instance name and a count of how many instances you want to Create\n\n\n\n\n\n\n\nUnder the Sources section, choose an image from the list make sure that \"Create New Volume\" = \"No\"\n\n\n\n\n\n\n\nUnder the Flavor section, select a virtual machine from the list with resources to best fit your needs\n\n\n\n\n\n\n\nUnder the Networks section, make sure to select \"private\" from the list\n\n\n\n\n\n\n\nUnder the Security Groups section, make sure that \"Default\" is selected\n\n\n\n\n\n\n\nUnder the Keypair section, make sure that your created keypair is selected\n\n\n\n\n\nLaunch your instance and wait for it to initialize\n\n\nWhile the instance is initializing, associate a public IP address under the \"Actions\" column of the \"Instances\" section\n\n\n\n\n\nSet Global Variables to Authenticate to OpenStack\n\n\n\n\nCreate an SSH session with the controller node (IP address located in Github host file)\n\n\nThe SSH connection with the controller node can be completed using either WinSCP or Putty\n\n\n\n\n\n\n\n\nWithin your home directory, edit the file with \"keystone\" in its filename using Vi (the keystone file holds your authentication information)\n\n\nWithin Vi, press \"i\" to insert new information\n\n\nChange your username and password to reflect the authentication information used to log into the OpenStack dashboard\n\n\nsave by pressing ESC, followed by \":wq\"\n\n\n\n\n\n\n\n\n\"Source\" the keystone file, or update it, by typing in \"source\" followed by the filename\n\n\n\n\n\n\nCreating, Fetching, and Decrypting the Keypair on the Controller node\n\n\n\n\nNOTE: This step must be completed for each created instance using this keypair\n\n\nFind the location of the keypair created from the beginning of this guide and recreate the file on the controller node\n\n\nOpen the .pem keypair file in notepad and copy ALL of its contents\n\n\nCreate a new file with Vi on the controller node\n\n\npaste the contents into the new file and save it as a .pem file\n\n\n\n\n\n- Decrypt and fetch the keypair password on of your virtual machine Instances\n - Type \"nova get-password \nvmName\n \nNameofKeyPairFileWithFullPath\n \"\n\n\n\n\n\n\nIf everything completed successfully, you should receive the decrypted passcode, which will be used as the passcode for remote Desktop\n\n\n\n\nRemote Desktop to the Instance\n\n\n\n\nOpen Remote Desktop\n\n\nComputer: publicly floating address\n\n\nUser name: Admin\n\n\nPassword: The decrypted passcode from the previous section", 
+            "title": "Launching a Windows Instance"
+        }, 
+        {
+            "location": "/user_guide/launching_windows/#launching-a-windows-image-on-snapstack", 
+            "text": "There are a few steps involved before we can launch a Windows image on Openstack. \n- Create a new keypair \n- Launch an instance\n- Set our global variables to authenticate to OpenStack \n- Fetch and decrypt our password  \n- Remote desktop to the instance", 
+            "title": "Launching a Windows Image on Snapstack"
+        }, 
+        {
+            "location": "/user_guide/launching_windows/#creating-a-keypair", 
+            "text": "The first step we must take is creating a keypair that will be used to fetch and decrypt our randomly generated password from OpenStack.\n- Log into the OpenStack dashboard and go to the \"Access and Security\" Tab  \n- Click \"Create new keypair\" and choose a name for the  file\n * It should save as a .pem file\n * Keep this file safe and be aware of its location", 
+            "title": "Creating a keypair"
+        }, 
+        {
+            "location": "/user_guide/launching_windows/#launching-an-instance", 
+            "text": "On the left-hand side of the OpenStack dashboard, under the \"Instances\" tab, choose \"launch Instance\"   \n- Choose an instance name and a count of how many instances you want to Create    Under the Sources section, choose an image from the list make sure that \"Create New Volume\" = \"No\"    Under the Flavor section, select a virtual machine from the list with resources to best fit your needs    Under the Networks section, make sure to select \"private\" from the list    Under the Security Groups section, make sure that \"Default\" is selected    Under the Keypair section, make sure that your created keypair is selected   Launch your instance and wait for it to initialize  While the instance is initializing, associate a public IP address under the \"Actions\" column of the \"Instances\" section", 
+            "title": "Launching an instance"
+        }, 
+        {
+            "location": "/user_guide/launching_windows/#set-global-variables-to-authenticate-to-openstack", 
+            "text": "Create an SSH session with the controller node (IP address located in Github host file)  The SSH connection with the controller node can be completed using either WinSCP or Putty     Within your home directory, edit the file with \"keystone\" in its filename using Vi (the keystone file holds your authentication information)  Within Vi, press \"i\" to insert new information  Change your username and password to reflect the authentication information used to log into the OpenStack dashboard  save by pressing ESC, followed by \":wq\"     \"Source\" the keystone file, or update it, by typing in \"source\" followed by the filename", 
+            "title": "Set Global Variables to Authenticate to OpenStack"
+        }, 
+        {
+            "location": "/user_guide/launching_windows/#creating-fetching-and-decrypting-the-keypair-on-the-controller-node", 
+            "text": "NOTE: This step must be completed for each created instance using this keypair  Find the location of the keypair created from the beginning of this guide and recreate the file on the controller node  Open the .pem keypair file in notepad and copy ALL of its contents  Create a new file with Vi on the controller node  paste the contents into the new file and save it as a .pem file   \n- Decrypt and fetch the keypair password on of your virtual machine Instances\n - Type \"nova get-password  vmName   NameofKeyPairFileWithFullPath  \"    If everything completed successfully, you should receive the decrypted passcode, which will be used as the passcode for remote Desktop", 
+            "title": "Creating, Fetching, and Decrypting the Keypair on the Controller node"
+        }, 
+        {
+            "location": "/user_guide/launching_windows/#remote-desktop-to-the-instance", 
+            "text": "Open Remote Desktop  Computer: publicly floating address  User name: Admin  Password: The decrypted passcode from the previous section", 
+            "title": "Remote Desktop to the Instance"
+        }, 
+        {
+            "location": "/admin_guide/getting_started/", 
+            "text": "Admin Guide\n\n\nThe admin guide is currently being migrated over from our Confluence instance.", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/admin_guide/getting_started/#admin-guide", 
+            "text": "The admin guide is currently being migrated over from our Confluence instance.", 
+            "title": "Admin Guide"
+        }, 
+        {
+            "location": "/admin_guide/packstack/packstack_index/", 
+            "text": "Liberty Packstack Instructions - 3 Node Build\n\n\nPackstack is a set of scripts created by RDO that use Puppet for quick OpenStack installations. You first generate an answer file, modify the answer file accordingly, and packstack uses that answer file to configure a multi-node or single-node instance of OpenStack.\n\n\nMore information:\n\nhttps://wiki.openstack.org/wiki/Packstack\nhttps://www.rdoproject.org/install/quickstart/", 
+            "title": "Packstack Liberty"
+        }, 
+        {
+            "location": "/admin_guide/packstack/packstack_index/#liberty-packstack-instructions-3-node-build", 
+            "text": "Packstack is a set of scripts created by RDO that use Puppet for quick OpenStack installations. You first generate an answer file, modify the answer file accordingly, and packstack uses that answer file to configure a multi-node or single-node instance of OpenStack.  More information: \nhttps://wiki.openstack.org/wiki/Packstack\nhttps://www.rdoproject.org/install/quickstart/", 
+            "title": "Liberty Packstack Instructions - 3 Node Build"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/calling/", 
+            "text": "Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [0/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n\n\nProblem: When launching instances, the instances would not join the network and were inaccessible. The instance's log would show a successful boot, however contacting the metadata service would fail 20 times then give up.  \n\n\nCentOS Linux 7 (Core)\nKernel 3.10.0-514.2.2.el7.x86_64 on an x86_64\n\nlocalhost login: [   17.238624] cloud-init[787]: Cloud-init v. 0.7.5 running 'init' at Tue, 27 Dec 2016 04:20:46 +0000. Up 17.16 seconds.\n[   17.341414] cloud-init[787]: ci-info: +++++++++++++++++++++++Net device info+++++++++++++++++++++++\n[   17.342699] cloud-init[787]: ci-info: +--------+------+-----------+-----------+-------------------+\n[   17.343893] cloud-init[787]: ci-info: | Device |  Up  |  Address  |    Mask   |     Hw-Address    |\n[   17.345104] cloud-init[787]: ci-info: +--------+------+-----------+-----------+-------------------+\n[   17.346300] cloud-init[787]: ci-info: |  lo:   | True | 127.0.0.1 | 255.0.0.0 |         .         |\n[   17.347499] cloud-init[787]: ci-info: | eth0:  | True |     .     |     .     | fa:16:3e:8c:0a:fb |\n[   17.348690] cloud-init[787]: ci-info: +--------+------+-----------+-----------+-------------------+\n[   17.349877] cloud-init[787]: ci-info: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Route info failed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n[   17.698511] cloud-init[787]: 2016-12-26 23:20:47,237 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [0/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n[   18.704584] cloud-init[787]: 2016-12-26 23:20:48,244 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [1/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n[   19.707135] cloud-init[787]: 2016-12-26 23:20:49,248 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [2/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n[   20.711488] cloud-init[787]: 2016-12-26 23:20:50,252 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [3/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n[   21.714534] cloud-init[787]: 2016-12-26 23:20:51,256 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [4/120s]: unexpected error ['NoneType' object has no\n\n\n\n\nScenario 1:\n\n\nThis is a misconfiguration of the neutron server's keystone settings on a compute node.   \n\n\nSolution:\n\n\nIn the hypervisor's neutron configuration, keystone authentication is failing because the auth_url is not pointing to the controller node, it's pointing to localhost. Below is the log that led me to know that the issue was with neutron. I was glancing through the config and noticed authentication was misconfigured. I changed the configuration to authenticate against the controller node and things started working after restarting the neutron-server service. The changes to the configuration file can be found below, as well as the warning messages in the logs.\n\n\nConfiguration file: /etc/neutron/neutron.server  \n\n\n$ vim /etc/neutron/neutron.conf\n\n[keystone_authtoken]\n\n#auth_uri = http://127.0.0.1:35357/v2.0/\n#identity_uri = http://127.0.0.1:5000\nauth_uri = http://192.168.1.3/35357/v2.0\nidentity_uri = http://192.168.1.3:5000\nadmin_tenant_name = %SERVICE_TENANT_NAME%\nadmin_user = %SERVICE_USER%\nadmin_password = %SERVICE_PASSWORD%\n\n\n\n\nScenario 2:\n\n\nCheck the neutron-metadata service on the network node. Make sure the service is running and logs are fresh.\n\n\nSolution:\n\n\nLog into neutron node and restart the metadata service.\n\n\n$ systemctl restart neutron-metadata-agent.service", 
+            "title": "Calling 'http://169.254.169.254...'"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/calling/#calling-http1692541692542009-04-04meta-datainstance-id-failed-0120s-unexpected-error-nonetype-object-has-no-attribute-status_code", 
+            "text": "Problem: When launching instances, the instances would not join the network and were inaccessible. The instance's log would show a successful boot, however contacting the metadata service would fail 20 times then give up.    CentOS Linux 7 (Core)\nKernel 3.10.0-514.2.2.el7.x86_64 on an x86_64\n\nlocalhost login: [   17.238624] cloud-init[787]: Cloud-init v. 0.7.5 running 'init' at Tue, 27 Dec 2016 04:20:46 +0000. Up 17.16 seconds.\n[   17.341414] cloud-init[787]: ci-info: +++++++++++++++++++++++Net device info+++++++++++++++++++++++\n[   17.342699] cloud-init[787]: ci-info: +--------+------+-----------+-----------+-------------------+\n[   17.343893] cloud-init[787]: ci-info: | Device |  Up  |  Address  |    Mask   |     Hw-Address    |\n[   17.345104] cloud-init[787]: ci-info: +--------+------+-----------+-----------+-------------------+\n[   17.346300] cloud-init[787]: ci-info: |  lo:   | True | 127.0.0.1 | 255.0.0.0 |         .         |\n[   17.347499] cloud-init[787]: ci-info: | eth0:  | True |     .     |     .     | fa:16:3e:8c:0a:fb |\n[   17.348690] cloud-init[787]: ci-info: +--------+------+-----------+-----------+-------------------+\n[   17.349877] cloud-init[787]: ci-info: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Route info failed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n[   17.698511] cloud-init[787]: 2016-12-26 23:20:47,237 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [0/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n[   18.704584] cloud-init[787]: 2016-12-26 23:20:48,244 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [1/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n[   19.707135] cloud-init[787]: 2016-12-26 23:20:49,248 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [2/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n[   20.711488] cloud-init[787]: 2016-12-26 23:20:50,252 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [3/120s]: unexpected error ['NoneType' object has no attribute 'status_code']\n[   21.714534] cloud-init[787]: 2016-12-26 23:20:51,256 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [4/120s]: unexpected error ['NoneType' object has no", 
+            "title": "Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [0/120s]: unexpected error ['NoneType' object has no attribute 'status_code']"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/calling/#scenario-1", 
+            "text": "This is a misconfiguration of the neutron server's keystone settings on a compute node.", 
+            "title": "Scenario 1:"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/calling/#solution", 
+            "text": "In the hypervisor's neutron configuration, keystone authentication is failing because the auth_url is not pointing to the controller node, it's pointing to localhost. Below is the log that led me to know that the issue was with neutron. I was glancing through the config and noticed authentication was misconfigured. I changed the configuration to authenticate against the controller node and things started working after restarting the neutron-server service. The changes to the configuration file can be found below, as well as the warning messages in the logs.  Configuration file: /etc/neutron/neutron.server    $ vim /etc/neutron/neutron.conf\n\n[keystone_authtoken]\n\n#auth_uri = http://127.0.0.1:35357/v2.0/\n#identity_uri = http://127.0.0.1:5000\nauth_uri = http://192.168.1.3/35357/v2.0\nidentity_uri = http://192.168.1.3:5000\nadmin_tenant_name = %SERVICE_TENANT_NAME%\nadmin_user = %SERVICE_USER%\nadmin_password = %SERVICE_PASSWORD%", 
+            "title": "Solution:"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/calling/#scenario-2", 
+            "text": "Check the neutron-metadata service on the network node. Make sure the service is running and logs are fresh.", 
+            "title": "Scenario 2:"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/calling/#solution_1", 
+            "text": "Log into neutron node and restart the metadata service.  $ systemctl restart neutron-metadata-agent.service", 
+            "title": "Solution:"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/packstacks_django/", 
+            "text": "Packstack fails: django\n\n\nProblem:\n\nERROR : Error appeared during Puppet run: 136.142.139.140_horizon.pp\nError: Execution of '/usr/bin/yum -d 0 -e 0 -y install openstack-dashboard' returned 1: Error: Package: 1:openstack-dashboard-8.0.1-2.el7.noarch (centos-openstack-liberty)\nYou will find full trace in log /var/tmp/packstack/20161029-110148-zN8Blk/manifests/136.142.139.140_horizon.pp.log\n\n\nSolution:\ndjango-horizon package was too new\ndeleted the package and reinstalled the package from liberty repo\n\n\n$ rpm -qa | grep -i django\n\n\n$ yum remove \nversion of django\n\n\n$ yum install django", 
+            "title": "Packstack fail: Django"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/packstacks_django/#packstack-fails-django", 
+            "text": "Problem: ERROR : Error appeared during Puppet run: 136.142.139.140_horizon.pp\nError: Execution of '/usr/bin/yum -d 0 -e 0 -y install openstack-dashboard' returned 1: Error: Package: 1:openstack-dashboard-8.0.1-2.el7.noarch (centos-openstack-liberty)\nYou will find full trace in log /var/tmp/packstack/20161029-110148-zN8Blk/manifests/136.142.139.140_horizon.pp.log  Solution:\ndjango-horizon package was too new\ndeleted the package and reinstalled the package from liberty repo  $ rpm -qa | grep -i django  $ yum remove  version of django  $ yum install django", 
+            "title": "Packstack fails: django"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/http_fails/", 
+            "text": "HTTPD fails to restart due to missing php file 'lib5php.sp'\n\n\n[root@controller conf]# systemctl status -l httpd\n? httpd.service - The Apache HTTP Server\nLoaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)\nActive: failed (Result: exit-code) since Sat 2016-10-29 10:54:04 EDT; 13s ago\nDocs: man:httpd(8)\nman:apachectl(8)\nProcess: 17536 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)\nProcess: 17534 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)\nMain PID: 17534 (code=exited, status=1/FAILURE)\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: Starting The Apache HTTP Server...\nOct 29 10:54:04 controller.cist.pitt.edu httpd[17534]: httpd: Syntax error on line 38 of /etc/httpd/conf/httpd.conf: Syntax error on line 1 of /etc/httpd/conf.modules.d/php5.load: Cannot load modules/libphp5.so into server: /etc/httpd/modules/libphp5.so: cannot open shared object file: No such file or directory\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE\nOct 29 10:54:04 controller.cist.pitt.edu kill[17536]: kill: cannot find process \n\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: httpd.service: control process exited, code=exited status=1\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: Failed to start The Apache HTTP Server.\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: Unit httpd.service entered failed state.\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: httpd.service failed.\n\n\n\n\nSolution:\n\nInstall PHP.\n\n\n$ yum install php", 
+            "title": "HTTPD fails"
+        }, 
+        {
+            "location": "/admin_guide/troubleshooting/http_fails/#httpd-fails-to-restart-due-to-missing-php-file-lib5phpsp", 
+            "text": "[root@controller conf]# systemctl status -l httpd\n? httpd.service - The Apache HTTP Server\nLoaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)\nActive: failed (Result: exit-code) since Sat 2016-10-29 10:54:04 EDT; 13s ago\nDocs: man:httpd(8)\nman:apachectl(8)\nProcess: 17536 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)\nProcess: 17534 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)\nMain PID: 17534 (code=exited, status=1/FAILURE)\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: Starting The Apache HTTP Server...\nOct 29 10:54:04 controller.cist.pitt.edu httpd[17534]: httpd: Syntax error on line 38 of /etc/httpd/conf/httpd.conf: Syntax error on line 1 of /etc/httpd/conf.modules.d/php5.load: Cannot load modules/libphp5.so into server: /etc/httpd/modules/libphp5.so: cannot open shared object file: No such file or directory\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE\nOct 29 10:54:04 controller.cist.pitt.edu kill[17536]: kill: cannot find process  \nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: httpd.service: control process exited, code=exited status=1\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: Failed to start The Apache HTTP Server.\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: Unit httpd.service entered failed state.\nOct 29 10:54:04 controller.cist.pitt.edu systemd[1]: httpd.service failed.  Solution: \nInstall PHP.  $ yum install php", 
+            "title": "HTTPD fails to restart due to missing php file 'lib5php.sp'"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/", 
+            "text": "CentOS 7 Image Creation.\n\n\nOpenStack's Image Guide\n\n\nDetermine Disk Size\n\n\nIt's very important to understand that when you initially create a Virtual Machine you are specifying the disk size. When you sysprep and copy this image, it's going to include all pre-determined disk space - whether it is used or not. Due to high launch times and the struggle to get such large files uploaded to the OpenStack Controller node, our goal is to keep these images as small as possible. A good rule of thumb moving forward is to look at the size of the original installation media and add 2-3GB for additional packages/programs and future updates.\n\n\nI found a workaround to the pre-determined disk issue. Once you finish your image, shut the VM down and clone it. The size of the clone will be reduced to what the actual disk is consuming. Sysprep the clone image and upload it rather than the original.\n\n\nConnect to the Network\n\n\nUpon initialization of your new CentOS 7 virtual machine, we need to keep the network settings at their defaults and connect to the network. We can do this by running the 'dhclient' command. Ping out to test connectivity.\n\n\n$ dhclient\n\n\nInstall Packages\n\n\nThis is the time to download all of the packages you want. Here's a pretty good list:\n\n- vim - The best text editor ever.\n- lvm2 - Logical volume management tools.\n- mlocate - Quickly find files on your system.\n- star - An enhanced zip tool.\n- samba-client - For working with LDAP.\n- cifs-utils - For using CIFS file shares.\n- nfs-utils - For using NFS file shares.\n- at - A job scheduling program.\n- wget - A command-line tool for downloading files.\n- net-tools - Lots of network diagnostic tools.\n- git - A code collaboration and versioning tool.\n- tmux - A highly customizatable terminal emulator.\n- chrony - A newer network time protocol.\n- epel-release (this is the EPEL repository) - The Fedora repository for additional packages.\n- nrpe (For Nagios configs) - A plugin for Nagios monitoring.\n- telnet - A tool for connecting to specific ports.\n- ansible - A devops tools for mass deployment of configurations to other hosts.\n- fping - A tool to mass ping a list of hosts.\n- firewalld - The new firewall.\n- tigervnc - A remote desktop service.\n- tigervnc-server  - A remote desktop service.\n- java - Necessary to run several other program such as Splunk, Hbase, Confluence, etc.\n- collectd - A metric collector to be used with InfluxDB/Grafana.\n- telegraf - A metric collector to be used with InfluxDB/Grafana.\n\n\n$ yum -y install epel-release.noarch\n\n\n$ yum -y install mlocate bind-utils vim samba-client httpd nfs-utils net-tools \\\ngdisk cifs-utils at wget lvm2 star git acpid  tmux chrony telnet ansible nrpe fping \\\nfirewalld fail2ban python2-pip.noarch cloud-init java tigervnc tigervnc-server collectd\n\n\n$ yum -y upgrade\n  \n\n\nStart and enable chronyd (this is a network time protocol service.)\n\n\n$ systemctl start chronyd\n\n\n$ systemctl enable chronyd\n\n\nConfigure /etc/sysconfig/network\n\n\nNOZEROCONF=\n, where setting \n to yes disables the zeroconf route. By default, the zeroconf route (169.254.0.0) is enabled when the system boots. For more information about zeroconf, refer to http://www.zeroconf.org/.\n\n\n$ echo \"NOZEROCONF=yes\" \n /etc/sysconfig/network\n\n\nCreate the Default User\n\n\nEvery image should have a default user of cist and a default password of Panther$. This can be done pre-installation or post-installation. If post-installation, open a terminal and follow these steps:\n\n\n$ useradd panther\n\n\n$ passwd panther\n\n\nMake the default user as administrator\n\n\nEdit the /etc/sudoers file using visudo.  \n\n\n## Allow root to run any commands anywhere\nroot    ALL=(ALL)       NOPASSWD: ALL\npanther ALL=(ALL)       NOPASSWD: ALL\n\n\n\n\nSet the Message of the Day\n\n\nIf you'd like to configure a special message, do it now. \nwww.chris.com\n has some excellent ASCII art!  \n\n\n$ vim /etc/motd\n\n\nSet the GRUB2 Boot Parameters\n\n\nReplace the default grub bootline parameters (/etc/default/grub) then save the changes.\n\n\n$ vim /etc/default/grub\n\n\nGRUB_CMDLINE_LINUX=\ncrashkernel=auto console=tty0 console=ttyS0,115200n8\n\n\n\n\n\n$ grub2-mkconfig -o /boot/grub2/grub.cfg\n  \n\n\nGenerating grub configuration file ...\nFound linux image: /boot/vmlinuz-3.10.0-229.14.1.el7.x86_64\nFound initrd image: /boot/initramfs-3.10.0-229.14.1.el7.x86_64.img\nFound linux image: /boot/vmlinuz-3.10.0-229.4.2.el7.x86_64\nFound initrd image: /boot/initramfs-3.10.0-229.4.2.el7.x86_64.img\nFound linux image: /boot/vmlinuz-3.10.0-229.el7.x86_64\nFound initrd image: /boot/initramfs-3.10.0-229.el7.x86_64.img\nFound linux image: /boot/vmlinuz-0-rescue-605f01abef434fb98dd1309e774b72ba\nFound initrd image: /boot/initramfs-0-rescue-605f01abef434fb98dd1309e774b72ba.img\ndone\n\n\n\n\nConfigure the cloud-init file\n\n\nWe are leaving security loose on this image as this is for testing and is behind a VPN. Create a 'cloud' user (panther), and use the /etc/cloud/cloud.cfg file to set that user's environment, shell, keys, groups, permissions, etc.\n\n\n$ vim /etc/cloud/cloud.cfg\n  \n\n\nusers:\n - default\n - name: cist\n   gecos: Computer Information Systems \n Technology\n   primary-group: cist\n   groups: root\n   ssh-import-id: none\n   lock_passwd: false\n   sudo: ALL=(ALL) NOPASSWD:ALL\n   shell: /bin/bash\n\n\n\n\nIf this has a GUI, Configure VNC\n\n\nInstall the \"GNOME\" and \"X Windows System\" group packages.\n\n\n$ yum -y group install \"GNOME\" \"X Windows System\"\n  \n\n\nTake a snapshot!\n\n\nOkay, that was a lot of hard work. We have the image almost ready. Take a snapshot of it! In order to sysprep the image we need to undefine it from libvirt. If we want to make tweaks we can always come back to our snapshot. This is very important to not have to start over and for maintaining updates.\n\n- Shut down the VM.\n\n- In Virtual machine manager, click Virtual Machine \n Clone.  \n\n\nSysprep the Image\n\n\nOn the hypervisor, log into the terminal. We must detach the image from KVM and use the virt-sysprep tool to wipe out the specific configs of the image. To download the virt-sysprep program, install the \nlibguestfs-utils\n package.\n\n\n$ yum -y libguestfs-tools\n  \n\n\nShut the virtual machine down.\n\n\n$ sudo shutdown now\n\n\nList all of the images.\n\n\n$ virsh list --all\n\n\nSysprep the image that you plan to upload.\n\n\n$ sysprep -d \nimage name\n\n\nOnce the image is sysprepped you can copy it over to the Controller node and use the \nglance\n or \nopenstack\n CLI to upload the image into the glance database. It is wise to keep this virtual machine present on the hypervisor - in the future you can easily turn it on, run updates, install new packages, or make different variations of the image using this virtual machine as a template, eliminating the hassle of starting from scratch.", 
+            "title": "CentOS 7"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#centos-7-image-creation", 
+            "text": "OpenStack's Image Guide", 
+            "title": "CentOS 7 Image Creation."
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#determine-disk-size", 
+            "text": "It's very important to understand that when you initially create a Virtual Machine you are specifying the disk size. When you sysprep and copy this image, it's going to include all pre-determined disk space - whether it is used or not. Due to high launch times and the struggle to get such large files uploaded to the OpenStack Controller node, our goal is to keep these images as small as possible. A good rule of thumb moving forward is to look at the size of the original installation media and add 2-3GB for additional packages/programs and future updates.  I found a workaround to the pre-determined disk issue. Once you finish your image, shut the VM down and clone it. The size of the clone will be reduced to what the actual disk is consuming. Sysprep the clone image and upload it rather than the original.", 
+            "title": "Determine Disk Size"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#connect-to-the-network", 
+            "text": "Upon initialization of your new CentOS 7 virtual machine, we need to keep the network settings at their defaults and connect to the network. We can do this by running the 'dhclient' command. Ping out to test connectivity.  $ dhclient", 
+            "title": "Connect to the Network"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#install-packages", 
+            "text": "This is the time to download all of the packages you want. Here's a pretty good list: \n- vim - The best text editor ever.\n- lvm2 - Logical volume management tools.\n- mlocate - Quickly find files on your system.\n- star - An enhanced zip tool.\n- samba-client - For working with LDAP.\n- cifs-utils - For using CIFS file shares.\n- nfs-utils - For using NFS file shares.\n- at - A job scheduling program.\n- wget - A command-line tool for downloading files.\n- net-tools - Lots of network diagnostic tools.\n- git - A code collaboration and versioning tool.\n- tmux - A highly customizatable terminal emulator.\n- chrony - A newer network time protocol.\n- epel-release (this is the EPEL repository) - The Fedora repository for additional packages.\n- nrpe (For Nagios configs) - A plugin for Nagios monitoring.\n- telnet - A tool for connecting to specific ports.\n- ansible - A devops tools for mass deployment of configurations to other hosts.\n- fping - A tool to mass ping a list of hosts.\n- firewalld - The new firewall.\n- tigervnc - A remote desktop service.\n- tigervnc-server  - A remote desktop service.\n- java - Necessary to run several other program such as Splunk, Hbase, Confluence, etc.\n- collectd - A metric collector to be used with InfluxDB/Grafana.\n- telegraf - A metric collector to be used with InfluxDB/Grafana.  $ yum -y install epel-release.noarch  $ yum -y install mlocate bind-utils vim samba-client httpd nfs-utils net-tools \\\ngdisk cifs-utils at wget lvm2 star git acpid  tmux chrony telnet ansible nrpe fping \\\nfirewalld fail2ban python2-pip.noarch cloud-init java tigervnc tigervnc-server collectd  $ yum -y upgrade", 
+            "title": "Install Packages"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#start-and-enable-chronyd-this-is-a-network-time-protocol-service", 
+            "text": "$ systemctl start chronyd  $ systemctl enable chronyd", 
+            "title": "Start and enable chronyd (this is a network time protocol service.)"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#configure-etcsysconfignetwork", 
+            "text": "NOZEROCONF= , where setting   to yes disables the zeroconf route. By default, the zeroconf route (169.254.0.0) is enabled when the system boots. For more information about zeroconf, refer to http://www.zeroconf.org/.  $ echo \"NOZEROCONF=yes\"   /etc/sysconfig/network", 
+            "title": "Configure /etc/sysconfig/network"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#create-the-default-user", 
+            "text": "Every image should have a default user of cist and a default password of Panther$. This can be done pre-installation or post-installation. If post-installation, open a terminal and follow these steps:  $ useradd panther  $ passwd panther", 
+            "title": "Create the Default User"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#make-the-default-user-as-administrator", 
+            "text": "Edit the /etc/sudoers file using visudo.    ## Allow root to run any commands anywhere\nroot    ALL=(ALL)       NOPASSWD: ALL\npanther ALL=(ALL)       NOPASSWD: ALL", 
+            "title": "Make the default user as administrator"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#set-the-message-of-the-day", 
+            "text": "If you'd like to configure a special message, do it now.  www.chris.com  has some excellent ASCII art!    $ vim /etc/motd", 
+            "title": "Set the Message of the Day"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#set-the-grub2-boot-parameters", 
+            "text": "Replace the default grub bootline parameters (/etc/default/grub) then save the changes.  $ vim /etc/default/grub  GRUB_CMDLINE_LINUX= crashkernel=auto console=tty0 console=ttyS0,115200n8   $ grub2-mkconfig -o /boot/grub2/grub.cfg     Generating grub configuration file ...\nFound linux image: /boot/vmlinuz-3.10.0-229.14.1.el7.x86_64\nFound initrd image: /boot/initramfs-3.10.0-229.14.1.el7.x86_64.img\nFound linux image: /boot/vmlinuz-3.10.0-229.4.2.el7.x86_64\nFound initrd image: /boot/initramfs-3.10.0-229.4.2.el7.x86_64.img\nFound linux image: /boot/vmlinuz-3.10.0-229.el7.x86_64\nFound initrd image: /boot/initramfs-3.10.0-229.el7.x86_64.img\nFound linux image: /boot/vmlinuz-0-rescue-605f01abef434fb98dd1309e774b72ba\nFound initrd image: /boot/initramfs-0-rescue-605f01abef434fb98dd1309e774b72ba.img\ndone", 
+            "title": "Set the GRUB2 Boot Parameters"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#configure-the-cloud-init-file", 
+            "text": "We are leaving security loose on this image as this is for testing and is behind a VPN. Create a 'cloud' user (panther), and use the /etc/cloud/cloud.cfg file to set that user's environment, shell, keys, groups, permissions, etc.  $ vim /etc/cloud/cloud.cfg     users:\n - default\n - name: cist\n   gecos: Computer Information Systems   Technology\n   primary-group: cist\n   groups: root\n   ssh-import-id: none\n   lock_passwd: false\n   sudo: ALL=(ALL) NOPASSWD:ALL\n   shell: /bin/bash", 
+            "title": "Configure the cloud-init file"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#if-this-has-a-gui-configure-vnc", 
+            "text": "Install the \"GNOME\" and \"X Windows System\" group packages.  $ yum -y group install \"GNOME\" \"X Windows System\"", 
+            "title": "If this has a GUI, Configure VNC"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#take-a-snapshot", 
+            "text": "Okay, that was a lot of hard work. We have the image almost ready. Take a snapshot of it! In order to sysprep the image we need to undefine it from libvirt. If we want to make tweaks we can always come back to our snapshot. This is very important to not have to start over and for maintaining updates. \n- Shut down the VM. \n- In Virtual machine manager, click Virtual Machine   Clone.", 
+            "title": "Take a snapshot!"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/centos7_image_creation/#sysprep-the-image", 
+            "text": "On the hypervisor, log into the terminal. We must detach the image from KVM and use the virt-sysprep tool to wipe out the specific configs of the image. To download the virt-sysprep program, install the  libguestfs-utils  package.  $ yum -y libguestfs-tools     Shut the virtual machine down.  $ sudo shutdown now  List all of the images.  $ virsh list --all  Sysprep the image that you plan to upload.  $ sysprep -d  image name  Once the image is sysprepped you can copy it over to the Controller node and use the  glance  or  openstack  CLI to upload the image into the glance database. It is wise to keep this virtual machine present on the hypervisor - in the future you can easily turn it on, run updates, install new packages, or make different variations of the image using this virtual machine as a template, eliminating the hassle of starting from scratch.", 
+            "title": "Sysprep the Image"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/", 
+            "text": "Ubuntu 16.04 Image Creation\n\n\nMy experience creating an Ubuntu 16.04 cloud image. A checklist of sorts. Most credit goes to the \nOpenStack documentation\n and \nVNC documentation\n\n\n\n\nBefore sysprepping and deploying the image, it's critical to make sure that you can access everything you need to access. This means testing SSH and VNC, firewall, SELinux, etc. It is also important to understand how large the image must be. If you create a 7GB image with 20GB of disk space, all of that space gets written to the image file which can cause some very long launch times and can be a real nightmare to upload to the OpenStack Controller node. Because we have the ability to add volumes at will through OpenStack, I think the base image +2GB is a perfectly reasonable size as this should be enough to cover any packages and updates installed over the course of the distro's version.\n\n\n\n\nChecklist:\n\n\nDetermine Disk Size\n\n\nIt's very important to understand that when you initially create a Virtual Machine you are specifying the disk size. When you sysprep and copy this image, it's going to include all pre-determined disk space - whether it is used or not. Due to high launch times and the struggle to get such large files uploaded to the OpenStack Controller node, our goal is to keep these images as small as possible. A good rule of thumb moving forward is to look at the size of the original installation media and add 2-3GB for additional packages/programs and future updates.\n\n\nConnect to the Network\n\n\nUpon initialization of your new Ubuntu virtual machine, we need to keep the network settings at their defaults and connect to the network. We can do this by running the 'dhclient' command. Ping out to test connectivity.\n\n\n$ dhclient\n\n\nInstall Packages\n\n\nThis is the time to download all of the packages you want. Here's a pretty good list:\n- mlocate\n\n- vim\n\n- samba-common-bin\n\n- smbclient\n\n- apache2\n\n- net-tools\n\n- gdisk\n\n- lvm2\n\n- at\n\n- fping\n\n- git\n\n- acpid\n\n- tmux\n\n- chrony\n\n- ansible\n\n- nagios-nrpe-plugin\n\n- fping\n\n- firewalld\n\n- cloud-init  \n\n\n$ apt-get install -y mlocate vim samba-common-bin smbclient apache2 \\  \nnet-tools gdisk lvm2 at fping git acpid tmux chrony \\  \nansible nagios-nrpe-plugin fping firewalld cloud-init ssh x11vnc selinux-utils\n\n\n\n\nCreate the Default User\n\n\nEvery image should have a default user of cist and a default password of \nPanther$\n. This can be done pre-installation or post-installation. If post-installation, open a terminal and follow these steps:\n\n\n$ useradd panther\n\n\n$ passwd panther\n  \n\n\nMake the default user an administrator - edit the /etc/sudoers file.\n\n\n$ visudo\n  \n\n\n# User privilege specification\nroot    ALL=(ALL:ALL) ALL\npanther ALL=(ALL:ALL) ALL\n\n\n\n\nInstall SSH\n\n\nInstall the ssh daemon:\n\n\n$ sudo apt-get -y install ssh\n\n\nConfigure the ssh daemon to start automatically:\n\n\n$ systemctl start ssh\n\n\n$ systemctl enable ssh\n\n\nEdit the /etc/ssh/sshd_config file and allow root login (NOT recommended for production servers! This is good for test environment only.)\n\n\n$ vim /etc/ssh/sshd_config\n\n\nFind and edit the following two lines:  \n\n\nPermitRootLogin yes\nPasswordAuthentication yes\n\n\n\n\nInstall VNC\n\n\nInstall the x11vnc service. The following instructions are for a systemd environment. See this site to install x11vnc on other systems. https://help.ubuntu.com/community/VNC/Servers\n\n\n$ sudo apt-get install x11vnc\n  \n\n\nSet the VNC password:\n\n\n$ x11vnc -storepasswd\n\n\nCreate the VNC service. Because we want VNC to run as a service in the background (using systemctl), we will configure the service accordingly. Change the USERNAME and port accordingly. DO NOT USE THE ROOT ACCOUNT FOR THIS! Use the default user account.\n\n\n$ sudo nano /lib/systemd/system/x11vnc.service\n\n\n[Unit]\nDescription=Start x11vnc at startup.\nAfter=multi-user.target\n\n[Service]\nType=simple\nExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/USERNAME/.vnc/passwd -rfbport 5900 -shared\n\n[Install]\nWantedBy=multi-user.target\n\n\n\n\nStart and enable the service:\n\n\n$ sudo systemctl daemon-reload\n\n\n$ sudo systemctl start x11vnc.service\n\n\n$ sudo systemctl enable x11vnc.service\n\n\nOpen the Firewall\n\n\nIf firewalld is running, open port 22 for SSH and the port you specified in the VNC service file for VNC:\n\n\n$ firewall-cmd --add-port=5900/tcp --permanent\n\n\n$ firewall-cmd --add-port=22/tcp --permanent\n\n\n$ firewall-cmd --reload\n\n\nSet the Message of the Day\n\n\nIf you'd like to configure a special message, do it now:\n\n\n$ vim /etc/motd\n\n\nNow is the time to test VNC / SSH capabilities. Ensure that the virtual machine is accessible.  \n\n\nConfigure cloud-init\n\n\nThe cloud-init file is where the OpenStack metadata server gets image-specific data. This data tells OpenStack which rules and changes to apply to the image as it launches. When running dpkg-reconfigure, keep all of the defaults.\n\n\n$ sudo apt-get install cloud-init\n\n\n$ dpkg-reconfigure cloud-init\n  \n\n\nEdit the cloud configuration file. Find and change to the following:\n\n\n$ vim /etc/cloud/cloud.cfg\n\n\nusers:\n   - default\n   - cist\ndisable_root: false\n\n\n\n\nShutdown the Virtual Machine\u007f\n\n\n$ sudo shutdown now\n\n\nTake a snapshot!\n\n\nOkay, that was a lot of hard work. We have the image almost ready. Take a snapshot of it! In order to sysprep the image we need to undefine it from libvirt. If we want to make tweaks we can always come back to our snapshot. This is very important to not have to start over and for maintaining updates.\n\n- Shut down the VM.\n\n- In Virtual machine manager, click Virtual Machine \n Clone.  \n\n\nSysprep the Image\n\n\nOn the hypervisor, log into the terminal. We must use the virt-sysprep tool to wipe out the specific configs of the image.  \n\n\nList all of the images and locate the image you just built.\n\n\n$ virsh list --all\n Id    Name                           State\n----------------------------------------------------\n 14    centos7.0-minimal              running\n 16    centos7.0-everything           running\n -     ubuntu16.04-desktop            shut off\n -     ubuntu16.04-desktop-clone      shut off\n -     ubuntu16.04-server             shut off\n\n\n\n\nSysprep the image you'd like to deploy:\n\n\n$ virt-sysprep -d ubuntu16.04-desktop-clone\n   \n\n\nGreen is good. If sysprep passes then the image is now ready to transfer to OpenStack! You're now ready to upload your image to OpenStack. Locate your image's disk file and copy it to your OpenStack instance via your favorite method or even using the OpenStack dashboard. If you used KVM, your disk image file will be located in /var/lib/libvirt/images.", 
+            "title": "Ubuntu"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#ubuntu-1604-image-creation", 
+            "text": "My experience creating an Ubuntu 16.04 cloud image. A checklist of sorts. Most credit goes to the  OpenStack documentation  and  VNC documentation   Before sysprepping and deploying the image, it's critical to make sure that you can access everything you need to access. This means testing SSH and VNC, firewall, SELinux, etc. It is also important to understand how large the image must be. If you create a 7GB image with 20GB of disk space, all of that space gets written to the image file which can cause some very long launch times and can be a real nightmare to upload to the OpenStack Controller node. Because we have the ability to add volumes at will through OpenStack, I think the base image +2GB is a perfectly reasonable size as this should be enough to cover any packages and updates installed over the course of the distro's version.", 
+            "title": "Ubuntu 16.04 Image Creation"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#checklist", 
             "text": "", 
-            "title": "Launch an Instance"
+            "title": "Checklist:"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#determine-disk-size", 
+            "text": "It's very important to understand that when you initially create a Virtual Machine you are specifying the disk size. When you sysprep and copy this image, it's going to include all pre-determined disk space - whether it is used or not. Due to high launch times and the struggle to get such large files uploaded to the OpenStack Controller node, our goal is to keep these images as small as possible. A good rule of thumb moving forward is to look at the size of the original installation media and add 2-3GB for additional packages/programs and future updates.", 
+            "title": "Determine Disk Size"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#connect-to-the-network", 
+            "text": "Upon initialization of your new Ubuntu virtual machine, we need to keep the network settings at their defaults and connect to the network. We can do this by running the 'dhclient' command. Ping out to test connectivity.  $ dhclient", 
+            "title": "Connect to the Network"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#install-packages", 
+            "text": "This is the time to download all of the packages you want. Here's a pretty good list:\n- mlocate \n- vim \n- samba-common-bin \n- smbclient \n- apache2 \n- net-tools \n- gdisk \n- lvm2 \n- at \n- fping \n- git \n- acpid \n- tmux \n- chrony \n- ansible \n- nagios-nrpe-plugin \n- fping \n- firewalld \n- cloud-init    $ apt-get install -y mlocate vim samba-common-bin smbclient apache2 \\  \nnet-tools gdisk lvm2 at fping git acpid tmux chrony \\  \nansible nagios-nrpe-plugin fping firewalld cloud-init ssh x11vnc selinux-utils", 
+            "title": "Install Packages"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#create-the-default-user", 
+            "text": "Every image should have a default user of cist and a default password of  Panther$ . This can be done pre-installation or post-installation. If post-installation, open a terminal and follow these steps:  $ useradd panther  $ passwd panther", 
+            "title": "Create the Default User"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#make-the-default-user-an-administrator-edit-the-etcsudoers-file", 
+            "text": "$ visudo     # User privilege specification\nroot    ALL=(ALL:ALL) ALL\npanther ALL=(ALL:ALL) ALL", 
+            "title": "Make the default user an administrator - edit the /etc/sudoers file."
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#install-ssh", 
+            "text": "Install the ssh daemon:  $ sudo apt-get -y install ssh  Configure the ssh daemon to start automatically:  $ systemctl start ssh  $ systemctl enable ssh  Edit the /etc/ssh/sshd_config file and allow root login (NOT recommended for production servers! This is good for test environment only.)  $ vim /etc/ssh/sshd_config  Find and edit the following two lines:    PermitRootLogin yes\nPasswordAuthentication yes", 
+            "title": "Install SSH"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#install-vnc", 
+            "text": "Install the x11vnc service. The following instructions are for a systemd environment. See this site to install x11vnc on other systems. https://help.ubuntu.com/community/VNC/Servers  $ sudo apt-get install x11vnc     Set the VNC password:  $ x11vnc -storepasswd  Create the VNC service. Because we want VNC to run as a service in the background (using systemctl), we will configure the service accordingly. Change the USERNAME and port accordingly. DO NOT USE THE ROOT ACCOUNT FOR THIS! Use the default user account.  $ sudo nano /lib/systemd/system/x11vnc.service  [Unit]\nDescription=Start x11vnc at startup.\nAfter=multi-user.target\n\n[Service]\nType=simple\nExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /home/USERNAME/.vnc/passwd -rfbport 5900 -shared\n\n[Install]\nWantedBy=multi-user.target  Start and enable the service:  $ sudo systemctl daemon-reload  $ sudo systemctl start x11vnc.service  $ sudo systemctl enable x11vnc.service", 
+            "title": "Install VNC"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#open-the-firewall", 
+            "text": "If firewalld is running, open port 22 for SSH and the port you specified in the VNC service file for VNC:  $ firewall-cmd --add-port=5900/tcp --permanent  $ firewall-cmd --add-port=22/tcp --permanent  $ firewall-cmd --reload", 
+            "title": "Open the Firewall"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#set-the-message-of-the-day", 
+            "text": "If you'd like to configure a special message, do it now:  $ vim /etc/motd  Now is the time to test VNC / SSH capabilities. Ensure that the virtual machine is accessible.", 
+            "title": "Set the Message of the Day"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#configure-cloud-init", 
+            "text": "The cloud-init file is where the OpenStack metadata server gets image-specific data. This data tells OpenStack which rules and changes to apply to the image as it launches. When running dpkg-reconfigure, keep all of the defaults.  $ sudo apt-get install cloud-init  $ dpkg-reconfigure cloud-init     Edit the cloud configuration file. Find and change to the following:  $ vim /etc/cloud/cloud.cfg  users:\n   - default\n   - cist\ndisable_root: false", 
+            "title": "Configure cloud-init"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#shutdown-the-virtual-machine", 
+            "text": "$ sudo shutdown now", 
+            "title": "Shutdown the Virtual Machine\u007f"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#take-a-snapshot", 
+            "text": "Okay, that was a lot of hard work. We have the image almost ready. Take a snapshot of it! In order to sysprep the image we need to undefine it from libvirt. If we want to make tweaks we can always come back to our snapshot. This is very important to not have to start over and for maintaining updates. \n- Shut down the VM. \n- In Virtual machine manager, click Virtual Machine   Clone.", 
+            "title": "Take a snapshot!"
+        }, 
+        {
+            "location": "/admin_guide/image_creation/ubuntu_image_creation/#sysprep-the-image", 
+            "text": "On the hypervisor, log into the terminal. We must use the virt-sysprep tool to wipe out the specific configs of the image.    List all of the images and locate the image you just built.  $ virsh list --all\n Id    Name                           State\n----------------------------------------------------\n 14    centos7.0-minimal              running\n 16    centos7.0-everything           running\n -     ubuntu16.04-desktop            shut off\n -     ubuntu16.04-desktop-clone      shut off\n -     ubuntu16.04-server             shut off  Sysprep the image you'd like to deploy:  $ virt-sysprep -d ubuntu16.04-desktop-clone      Green is good. If sysprep passes then the image is now ready to transfer to OpenStack! You're now ready to upload your image to OpenStack. Locate your image's disk file and copy it to your OpenStack instance via your favorite method or even using the OpenStack dashboard. If you used KVM, your disk image file will be located in /var/lib/libvirt/images.", 
+            "title": "Sysprep the Image"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/", 
+            "text": "Creating User Data Bag Items\n\n\nWelcome. This runbook is going to throw a lot at you but that's the point. Hopefully it is thorough enough to follow and make sense.\n\nAuthor: Tom Neilly\n\nDate: 5/6/2017\n\n\nWhat's a \"data bag item\"?\n\n\nA data bag is a \nJSON\n file that contains global variables used for Chef. The \"users\" data bag contains all of the instructions for Chef on how to create a user on any one of our nodes. This automates the user creation process for us.\n\n\nWhat's \"Chef\"?\n\n\nChef\n is a program used for automation and orchestration of multiple nodes. By creating a Chef recipe to add the users, and a data bag for the users, with data bag items in that data bag that actually contain the data for the user, we eliminate the need to ever have to manually modify those users on a node again. We can simply run our Chef recipe on the node and it will do the job for us.  \n\n\nWhat's a \"node\"?\n\n\nA node (or host) refers to any one of our servers, physical or virtual.\n\n\nOh, okay. So what's the data bag item for?\n\n\nThe data bag item will contain all of the user's information. For example, to create a user on Linux, we would use this command (ignore the \"$\" - this indicates that this is a command we must run in our shell):\n\n\n$ useradd \nusername\n -c \ncomment on user\n -m /home/\nusername\n -p \nencrypted password\n -s \npath to shell\n -G \nadditional groups user is to be a member of\n  \n\n\nExample, here we are creating a user \"derpo\" a comment of who he is, setting his home directory to /home/derp, setting the encrypted password, ensuring derp uses the bash shell, and adding him to the \"corporate\" group:  \n\n\nuseradd derpo -c \nDerp Derpington of Derptown\n -m /home/derp -p nnjiadsfuadf###$\nhdsfu -s /bin/bash -G corporate\n\n\n\n\nWhat's a shell?\n\n\nA shell is your terminal environment, we are using the \nbash\n shell.\n\n\nWhy not just create the account instead of going through the hassle to make this data bag item?\n\n\nImagine we have 60 users and they must all exist on 44 different nodes. That is an awful lot of work. This is where Chef comes in. We create a file for each user (a data bag file), then a simple recipe that reads the data from the data bag file and executes a script to create a user with that data.  \n\n\nHow do I get started?\n\n\nFirst, you must connect to the VPN. You can find instructions on how to do this at \nmy.pitt.edu\n.  \n\n\nOnce connected to the VPN, you must log on to our chef server (chef.snapstack.cloud / 136.142.139.154). Since we are not using a GUI, we must access our Chef server (and most other servers in our environment) with the SSH protocol.  \n\n\nIf you are using Windows, download \nPutty.exe\n. Once putty is downloaded, execute it. Since it is a simple .exe file, you do not even need to install anything. You'll see the Putty program launch. Enter the server's IP address, keep the default SSH port of 22, and connect.\n\n\n\n\nIf you are using a MAC, open a terminal and SSH to the Chef server:\n\n\n$ ssh 136.142.139.157\n  \n\n\nYou will be prompted for your username (use your Pitt username) and your password. You should now be connected to the Chef server.  \n\n\nReset your password\n\n\nNow is a good time to reset your default password if you have not. Do this using the \"passwd\" command.\n\n\n$ passwd\n  \n\n\nExample:  \n\n\nChanging password for thn16.\n(current) UNIX password:\nNew password:\nRetype new password:\npasswd: all authentication tokens updated successfully.\n\n\n\n\nYour password should now be set. Next we need to get the hashed version of your password. This is stored in the \"/etc/shadow\" file.\n\n\nHow do I see the contents of a file?\n\n\nYou can see the contents of a file by using several different commands but let's start with \"cat\". Because /etc/shadow is a protected file, we must use sudo to see it.\n\n\nWhat's sudo?\n\n\nThe \"sudo\" command is how an administrative user can call commands with \"root\" access. The \"root\" user is the system's superuser account. Nothing is restricted to root.\n\n\nFind your hashed passwd in /etc/shadow\n\n\n$ sudo cat /etc/shadow\n  \n\n\nDang, that's a lot of results and pretty messy. You really only care about your account. We can narrow the results using \"grep\". \"grep\" is a way to sort and sift through results. Let's use cat and \"pipe\" ( | ) it into grep for our username. A pipe simply takes the results of the last command and uses it as standard input on the next command.\n\n\n$ sudo cat /etc/shadow | grep \nyour username\n\n\nExample:  \n\n\n$ sudo cat /etc/shadow | grep ansible\nansible:$6$3slBU8f8$W7MzBdvgfb0m/weT.Wn1MNEP6pyLv5hiQHbSUDVgTTR42/siKjE2dNp/ckiA.I/IdJwpIymOoS1Z9umGWX8XH.:17291:0:99999:7:::\n\n\n\n\nThe hashed password is the second field in the result. The fields are separated by a colon (:). Copy the hasted password somewhere for now, we'll need it in a minute.\n\n\nWhere do I Create This Data Bag File?\n\n\nFirst we need to fork our CIST-OpenStack repository.\n\n\nFork our repository??\n\n\nUsing \nGit\n and the git CLI (command line interface) we are going to first clone our repository. A repository is a folder of files stored on Github's cloud. We can pull those files down from anywhere and push new files everywhere. Git is used for collaboration and versioning of files, more specifically scripts, configurations, and programs. We will store all of our own scripts, configurations, and data in Git so that it can be restored quickly and easily.\n\n\nTo \"fork\" a repository is to simply make a copy of the CIST-Openstack/openstack.git repository to your own Github account. Once the repo is forked we must \"clone\" our new repository. To \"clone\" a repository to copy the contents of the repository from Github to your local machine. Once the files are on your local machine, you can make changes, and \"push\" those files back up to Github, where they can eventually be \"pulled\" into the original repository.\n\n\n\n\nGo to the \nCIST-OpenStack repository\n  \n\n\nOn the top right of the screen, click \"Fork\". Give it a second to make the copy. Now look at the URL, notice it says \"github.com/\n/openstack\"? This means you have forked the repository.\n\n\nNavigate to your home directory:\n\n\n$ cd\n\n  That's the command to \"change directory\". Using \"cd\" by itself will change to your home directorhy (/home/\n).  \n\n\nClone the repository. In your browser, you should see a big green button that says, \"Clone or download\". Click that button and highlight the link. This is the repository we are going to clone.\n\n\n$ git clone \nrepository you just copied\n  \n\n\nList the contents of your home directory to see if it cloned correctly:\n\n\n$ ls\n  \n\n\nYou should see the \nopenstack\n directory. This is the repository. Navigate to it.\n\n\n$ cd openstack\n  \n\n\nNavigate to 'chef-repo/data_bags/users' and list the file contents.  \n\n\n\n\nCreate a new data bag file for yourself\n\n\nList out the contents of the \n~/openstack/chef-repo/data_bags/users\n directory and you will see many .json files. Each of these is a data bag item, more specifically for the \"users\" data bag. You must new create a data bag item for yourself. We will do so using the \nVim\n text editor. Check out this \nvim cheat sheet\n which will help you understand how to use Vim.\n\n\nCreate a new file for yourself:\n\n\n$ vim \nusername\n.json\n  \n\n\nYou must be in \"insert\" mode to type. Press \nShift+i\n. The bottom of the screen should show \"-- INSERT --\". If it does not, try it again. Once in \"insert\" mode you may type. Here are the following contents we need in our JSON file:  \n\n\n{\n  \nid\n: \nyour username\n,\n  \ncomment\n: \nFull Name, this is just for notes\n,\n  \nhome\n: \n/home/\nyour username\n,\n  \nshell\n: \n/bin/bash\n,\n  \npassword\n: \nyour hashed password you copied\n\n}\n\n\n\n\n\nWhen you are done inserting the text, leave insert mode and enter \"escape\" mode by pressing the ESC key. Once you no longer see \"-- INSERT --\" at the bottom of the screen you are in escape mode. Press colon (\n:\n), then \nwq!\n and press enter. This writes the file and quits out of Vim.\n\n\n:wq!\n  \n\n\nCheck your file\n\n\nCheck the contents of your file using the \"cat\" command. If it's good, let's push it to our Git repository.\n\n\nAdd your changes to Git\n\n\n$ git add .\n  \n\n\nCheck Git status\n\n\nCheck git status to see if the file was added. If your terminal has color, it should be green.\n\n\n$ git status\n  \n\n\nCommit your file\n\n\nCommit your file to be pushed.\n\n\n$ git commit\n  \n\n\nPush your file\n\n\nPush your file to your repository on Github. Enter your credentials once prompted.\n\n$ git push\n  \n\n\nCheck the repo in your browser\n\n\nRefresh your browser, is the new file there? Yeah? Great job.", 
+            "title": "Data Bag Users"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#creating-user-data-bag-items", 
+            "text": "Welcome. This runbook is going to throw a lot at you but that's the point. Hopefully it is thorough enough to follow and make sense. \nAuthor: Tom Neilly \nDate: 5/6/2017", 
+            "title": "Creating User Data Bag Items"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#whats-a-data-bag-item", 
+            "text": "A data bag is a  JSON  file that contains global variables used for Chef. The \"users\" data bag contains all of the instructions for Chef on how to create a user on any one of our nodes. This automates the user creation process for us.", 
+            "title": "What's a \"data bag item\"?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#whats-chef", 
+            "text": "Chef  is a program used for automation and orchestration of multiple nodes. By creating a Chef recipe to add the users, and a data bag for the users, with data bag items in that data bag that actually contain the data for the user, we eliminate the need to ever have to manually modify those users on a node again. We can simply run our Chef recipe on the node and it will do the job for us.", 
+            "title": "What's \"Chef\"?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#whats-a-node", 
+            "text": "A node (or host) refers to any one of our servers, physical or virtual.", 
+            "title": "What's a \"node\"?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#oh-okay-so-whats-the-data-bag-item-for", 
+            "text": "The data bag item will contain all of the user's information. For example, to create a user on Linux, we would use this command (ignore the \"$\" - this indicates that this is a command we must run in our shell):  $ useradd  username  -c  comment on user  -m /home/ username  -p  encrypted password  -s  path to shell  -G  additional groups user is to be a member of     Example, here we are creating a user \"derpo\" a comment of who he is, setting his home directory to /home/derp, setting the encrypted password, ensuring derp uses the bash shell, and adding him to the \"corporate\" group:    useradd derpo -c  Derp Derpington of Derptown  -m /home/derp -p nnjiadsfuadf###$ hdsfu -s /bin/bash -G corporate", 
+            "title": "Oh, okay. So what's the data bag item for?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#whats-a-shell", 
+            "text": "A shell is your terminal environment, we are using the  bash  shell.", 
+            "title": "What's a shell?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#why-not-just-create-the-account-instead-of-going-through-the-hassle-to-make-this-data-bag-item", 
+            "text": "Imagine we have 60 users and they must all exist on 44 different nodes. That is an awful lot of work. This is where Chef comes in. We create a file for each user (a data bag file), then a simple recipe that reads the data from the data bag file and executes a script to create a user with that data.", 
+            "title": "Why not just create the account instead of going through the hassle to make this data bag item?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#how-do-i-get-started", 
+            "text": "First, you must connect to the VPN. You can find instructions on how to do this at  my.pitt.edu .    Once connected to the VPN, you must log on to our chef server (chef.snapstack.cloud / 136.142.139.154). Since we are not using a GUI, we must access our Chef server (and most other servers in our environment) with the SSH protocol.    If you are using Windows, download  Putty.exe . Once putty is downloaded, execute it. Since it is a simple .exe file, you do not even need to install anything. You'll see the Putty program launch. Enter the server's IP address, keep the default SSH port of 22, and connect.   If you are using a MAC, open a terminal and SSH to the Chef server:  $ ssh 136.142.139.157     You will be prompted for your username (use your Pitt username) and your password. You should now be connected to the Chef server.", 
+            "title": "How do I get started?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#reset-your-password", 
+            "text": "Now is a good time to reset your default password if you have not. Do this using the \"passwd\" command.  $ passwd     Example:    Changing password for thn16.\n(current) UNIX password:\nNew password:\nRetype new password:\npasswd: all authentication tokens updated successfully.  Your password should now be set. Next we need to get the hashed version of your password. This is stored in the \"/etc/shadow\" file.", 
+            "title": "Reset your password"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#how-do-i-see-the-contents-of-a-file", 
+            "text": "You can see the contents of a file by using several different commands but let's start with \"cat\". Because /etc/shadow is a protected file, we must use sudo to see it.", 
+            "title": "How do I see the contents of a file?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#whats-sudo", 
+            "text": "The \"sudo\" command is how an administrative user can call commands with \"root\" access. The \"root\" user is the system's superuser account. Nothing is restricted to root.", 
+            "title": "What's sudo?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#find-your-hashed-passwd-in-etcshadow", 
+            "text": "$ sudo cat /etc/shadow     Dang, that's a lot of results and pretty messy. You really only care about your account. We can narrow the results using \"grep\". \"grep\" is a way to sort and sift through results. Let's use cat and \"pipe\" ( | ) it into grep for our username. A pipe simply takes the results of the last command and uses it as standard input on the next command.  $ sudo cat /etc/shadow | grep  your username  Example:    $ sudo cat /etc/shadow | grep ansible\nansible:$6$3slBU8f8$W7MzBdvgfb0m/weT.Wn1MNEP6pyLv5hiQHbSUDVgTTR42/siKjE2dNp/ckiA.I/IdJwpIymOoS1Z9umGWX8XH.:17291:0:99999:7:::  The hashed password is the second field in the result. The fields are separated by a colon (:). Copy the hasted password somewhere for now, we'll need it in a minute.", 
+            "title": "Find your hashed passwd in /etc/shadow"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#where-do-i-create-this-data-bag-file", 
+            "text": "First we need to fork our CIST-OpenStack repository.", 
+            "title": "Where do I Create This Data Bag File?"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#fork-our-repository", 
+            "text": "Using  Git  and the git CLI (command line interface) we are going to first clone our repository. A repository is a folder of files stored on Github's cloud. We can pull those files down from anywhere and push new files everywhere. Git is used for collaboration and versioning of files, more specifically scripts, configurations, and programs. We will store all of our own scripts, configurations, and data in Git so that it can be restored quickly and easily.  To \"fork\" a repository is to simply make a copy of the CIST-Openstack/openstack.git repository to your own Github account. Once the repo is forked we must \"clone\" our new repository. To \"clone\" a repository to copy the contents of the repository from Github to your local machine. Once the files are on your local machine, you can make changes, and \"push\" those files back up to Github, where they can eventually be \"pulled\" into the original repository.   Go to the  CIST-OpenStack repository     On the top right of the screen, click \"Fork\". Give it a second to make the copy. Now look at the URL, notice it says \"github.com/ /openstack\"? This means you have forked the repository.  Navigate to your home directory:  $ cd \n  That's the command to \"change directory\". Using \"cd\" by itself will change to your home directorhy (/home/ ).    Clone the repository. In your browser, you should see a big green button that says, \"Clone or download\". Click that button and highlight the link. This is the repository we are going to clone.  $ git clone  repository you just copied     List the contents of your home directory to see if it cloned correctly:  $ ls     You should see the  openstack  directory. This is the repository. Navigate to it.  $ cd openstack     Navigate to 'chef-repo/data_bags/users' and list the file contents.", 
+            "title": "Fork our repository??"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#create-a-new-data-bag-file-for-yourself", 
+            "text": "List out the contents of the  ~/openstack/chef-repo/data_bags/users  directory and you will see many .json files. Each of these is a data bag item, more specifically for the \"users\" data bag. You must new create a data bag item for yourself. We will do so using the  Vim  text editor. Check out this  vim cheat sheet  which will help you understand how to use Vim.  Create a new file for yourself:  $ vim  username .json     You must be in \"insert\" mode to type. Press  Shift+i . The bottom of the screen should show \"-- INSERT --\". If it does not, try it again. Once in \"insert\" mode you may type. Here are the following contents we need in our JSON file:    {\n   id :  your username ,\n   comment :  Full Name, this is just for notes ,\n   home :  /home/ your username ,\n   shell :  /bin/bash ,\n   password :  your hashed password you copied \n}  When you are done inserting the text, leave insert mode and enter \"escape\" mode by pressing the ESC key. Once you no longer see \"-- INSERT --\" at the bottom of the screen you are in escape mode. Press colon ( : ), then  wq!  and press enter. This writes the file and quits out of Vim.  :wq!", 
+            "title": "Create a new data bag file for yourself"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#check-your-file", 
+            "text": "Check the contents of your file using the \"cat\" command. If it's good, let's push it to our Git repository.", 
+            "title": "Check your file"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#add-your-changes-to-git", 
+            "text": "$ git add .", 
+            "title": "Add your changes to Git"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#check-git-status", 
+            "text": "Check git status to see if the file was added. If your terminal has color, it should be green.  $ git status", 
+            "title": "Check Git status"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#commit-your-file", 
+            "text": "Commit your file to be pushed.  $ git commit", 
+            "title": "Commit your file"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#push-your-file", 
+            "text": "Push your file to your repository on Github. Enter your credentials once prompted. $ git push", 
+            "title": "Push your file"
+        }, 
+        {
+            "location": "/admin_guide/runbooks/add_user_data_bag_items/#check-the-repo-in-your-browser", 
+            "text": "Refresh your browser, is the new file there? Yeah? Great job.", 
+            "title": "Check the repo in your browser"
         }
     ]
 }
