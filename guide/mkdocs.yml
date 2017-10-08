@@ -8,6 +8,7 @@ pages:
         - "Image Information" : "user_guide/image_info.md"
         - "Flavor References" : "user_guide/flavors.md"
         - "Launching a Windows Instance" : "user_guide/launching_windows.md"
+        - "Docker Guide" : "user_guide/
     - Admin Guide:
         - "Getting Started" : "admin_guide/getting_started.md"
         - Adding a Compute Node:
