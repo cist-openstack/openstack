@@ -14,6 +14,8 @@ pages:
         - Adding a Compute Node:
           - "Imaging a Compute Node": "admin_guide/adding_compute_nodes/imaging.md" 
           - "Add a Compute Node to OpenStack" : "admin_guide/adding_compute_nodes/add_to_openstack.md"
+        - Deleting a Compute Node:
+          - "Removing a Compute Node From the Nova Database": "admin_guide/removing_compute_nodes.md"
         - Packstack Liberty: "admin_guide/packstack/packstack_index.md"
         - Troubleshooting:
           - "Calling 'http://169.254.169.254...'" : "admin_guide/troubleshooting/calling.md"
