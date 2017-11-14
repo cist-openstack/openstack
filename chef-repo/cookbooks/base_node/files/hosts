@@ -2,9 +2,14 @@
 127.0.0.1   	localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1       	localhost localhost.localdomain localhost6 localhost6.localdomain6
 
+# DMZ
+136.142.139.131 hv1		hv1.cist.pitt.edu
+#136.142.139.132 backups		backups.cist.pitt.edu
+
+# RFC1918
 10.244.26.11    controller      newton-controller.cist.pitt.edu
 10.244.26.12    network         newton-network.cist.pitt.edu
-10.244.26.13	hv1		hv1.cist.pitt.edu
+10.244.26.13	registry	registry.snapstack.cloud
 10.244.26.20    mega            megacompute.cist.pitt.edu
 10.244.26.21    compute1        compute1.cist.pitt.edu
 10.244.26.22    compute2        compute2.cist.pitt.edu
@@ -15,6 +20,7 @@
 10.244.26.27    compute7        compute7.cist.pitt.edu
 10.244.26.28    compute8        compute8.cist.pitt.edu
 10.244.26.29    compute9        compute9.cist.pitt.edu
+10.244.26.50    backups		backups.cist.pitt.edu
 10.244.26.104   grafana         grafana.snapstack.cloud
 10.244.26.106   chef            chef.snapstack.cloud
 10.244.26.108   help		help.snapstack.cloud

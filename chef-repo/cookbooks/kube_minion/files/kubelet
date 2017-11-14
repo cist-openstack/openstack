@@ -8,10 +8,10 @@ KUBELET_ADDRESS="--address=0.0.0.0"
 KUBELET_HOSTNAME="--hostname-override=k8s-2.snapstack.cloud"
 
 # location of the api-server
-KUBELET_API_SERVER="--api-servers=http://k8s-1.snapstack.cloud:8080"
+KUBELET_API_SERVER="--api-servers=http://k8s-master.snapstack.cloud:8080"
 
 # pod infrastructure container
-KUBELET_POD_INFRA_CONTAINER="--pod-infra-container-image=registry.access.redhat.com/rhel7/pod-infrastructure:latest"
+KUBELET_POD_INFRA_CONTAINER="--pod-infra-container-image=registry.snapstack.cloud:5000/pod-infrastructure-cist"
 
 # Add your own!
 KUBELET_ARGS=""

@@ -17,11 +17,10 @@ KUBELET_PORT="--kubelet-port=10250"
 KUBE_ETCD_SERVERS="--etcd-servers=http://127.0.0.1:2379"
 
 # Address range to use for services
-KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.244.26.0/24"
+KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.244.26.0/23"
 
 # default admission control policies
-KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"
+#KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"
 
 # Add your own!
-KUBE_API_ARGS="--service_account_key_file=/etc/kubernetes/serviceaccount.key"
-
+#KUBE_API_ARGS="--service_account_key_file=/etc/kubernetes/serviceaccount.key"

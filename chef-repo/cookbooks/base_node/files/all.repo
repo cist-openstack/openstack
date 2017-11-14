@@ -39,3 +39,11 @@ baseurl=http://10.244.26.13/repo/centos-ceph-jewel
 enabled=1
 fastestmirror_enabled=0
 gpgcheck=0
+
+[kubernetes]
+name=kubernetes
+baseurl=http://10.244.26.13/repo/kubernetes
+enabled=1
+fastestmirror_enabled=0
+gpgcheck=0
+

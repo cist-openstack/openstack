@@ -88,15 +88,16 @@ Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin
 ## The COMMANDS section may have other options added to it.
 ##
 ## Allow root to run any commands anywhere 
-root	ALL=(ALL) 	ALL
-panther ALL=(ALL)	NOPASSWD: ALL
-thn16	ALL=(ALL)	NOPASSWD: ALL
-ansible ALL=(ALL)	NOPASSWD: ALL
-telegraf  ALL=(ALL)       NOPASSWD: ALL
+root	  ALL=(ALL) 	ALL
+panther   ALL=(ALL)	NOPASSWD: ALL
+thn16	  ALL=(ALL)	NOPASSWD: ALL
+ansible   ALL=(ALL)	NOPASSWD: ALL
+telegraf  ALL=(ALL)     NOPASSWD: ALL
 lewicki	  ALL=(ALL)	NOPASSWD: ALL
 ellison	  ALL=(ALL)	NOPASSWD: ALL
 sellison  ALL=(ALL)     NOPASSWD: ALL
 atd20	  ALL=(ALL)	NOPASSWD: ALL
+dre15	  ALL=(ALL)	NOPASSWD: ALL
 
 ## Allows members of the 'sys' group to run networking, software, 
 ## service management apps and more.

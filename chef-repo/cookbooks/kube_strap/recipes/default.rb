@@ -8,18 +8,29 @@
 #
 
 package 'base_packages' do
-  package_name ['wget',
-                'mlocate',
-                'vim',
-                'chrony',
-                'git',
-                'erlang',
-                'tigervnc',
-                'tigervnc-server',
+  package_name ['docker',
                 'kubernetes',
-                'docker',
                 'etcd']
   action :upgrade
+end
+
+execute 'daemon-reload' do
+  command 'systemctl daemon-reload'
+  action :nothing
+  user 'root'
+end
+
+execute 'restart-docker' do
+  command 'systemctl restart docker'
+  action :nothing
+  user 'root'
+end
+
+cookbook_file '/usr/lib/systemd/system/docker.service' do
+  source 'docker'
+  action :create
+  notifies :action, 'execute[daemon-reload]', :immediately
+  notifies :action, 'execute[restart-docker]', :immediately
 end
 
 service 'chronyd' do

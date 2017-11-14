@@ -128,7 +128,7 @@ end
 
 # Restart services
 service 'telegraf' do
-  action [:enable, :start]
+  action [:enable, :start, :restart]
 end
 
 service 'chronyd' do
